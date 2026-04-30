@@ -1,0 +1,30 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Objetivos}{3}{section.1.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Análise Teórica}}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}O \textit {Buffer} de Corrente}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Exemplo Numérico}{4}{section.2.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Medições em Laboratório}}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Procedimento Experimental}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Preparação dos Circuitos}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Medição dos Valores Reais dos Componentes}{6}{subsection.3.1.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Análise Pós-Laboratorial}}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Estimativa pelo Método dos Mínimos Erros Quadráticos}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Comparação dos Resultados}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Análise dos Erros}{7}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Gráficos de Ajuste}{7}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparação Visual}{7}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Análise de Fontes de Erro}{7}{section.4.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{9}{chapter.5}%
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase []{REFER\^ENCIAS}}{10}{section*.9}%
+\vspace {\cftbeforechapterskip }

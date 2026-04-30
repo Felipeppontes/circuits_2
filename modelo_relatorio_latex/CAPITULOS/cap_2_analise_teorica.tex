@@ -1,0 +1,56 @@
+\chapter{Análise Teórica}
+
+Esta prática de laboratório é dividida em três etapas principais. A primeira consiste na análise teórica do circuito divisor de tensão e do buffer de corrente para obter os equivalentes de Thévenin. A segunda etapa foca na montagem dos circuitos e na coleta de dados experimentais em laboratório. Por fim, a terceira etapa envolve a análise dos dados coletados para estimar os parâmetros de Thévenin utilizando o MMEQ. Para os cálculos e manipulação de equações, foi utilizada a ferramenta de computação simbólica \cite{maxima}.
+
+\section{O \textit{Buffer} de Corrente}
+
+O \textit{buffer} de corrente é um circuito que permite transferir uma tensão de uma fonte com alta impedância interna para uma carga sem perda significativa de tensão. A configuração básica utiliza um amplificador operacional na configuração não-inversora com realimentação direta (ganho unitário), conforme mostrado na Figura \ref{fig:buffer_basico}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Configuração básica do \textit{buffer} de corrente com amplificador operacional.}
+	\includegraphics[width=0.5\linewidth]{FIGURAS/buffer_basico.png}
+	\label{fig:buffer_basico}
+	\legend{Fonte: Esquema do circuito da prática.}
+\end{figure}
+
+\begin{equation}
+	V_{th} = -V_{EE} + I \cdot R_2 = -V_{EE} + \frac{R_2(V_{CC} + V_{EE})}{R_1 + R_2}.
+	\label{eq:vth_divisor}
+\end{equation}
+
+Simplificando:
+
+\begin{equation}
+	V_{th} = \frac{R_2 \cdot V_{CC} + R_2 \cdot V_{EE} - V_{EE}(R_1 + R_2)}{R_1 + R_2} = \frac{R_2 \cdot V_{CC} - R_1 \cdot V_{EE}}{R_1 + R_2}.
+	\label{eq:vth_simplificada}
+\end{equation}
+
+\section{Exemplo Numérico}
+
+Considere o circuito com os seguintes valores:
+\begin{itemize}
+	\item $V_{CC} = V_{EE} = 10$~V
+	\item $R_1 = 3{,}9$~k$\Omega$
+	\item $R_2 = 6{,}8$~k$\Omega$
+	\item $R_o = 50$~$\Omega$ (resistência de saída do ampop)
+\end{itemize}
+
+Os valores calculados estão sumarizados na Tabela \ref{tab:valores_teoricos}.
+
+\begin{table}[H]
+	\centering
+	\ABNTEXfontereduzida
+	\caption{Valores teóricos dos equivalentes de Thévenin.}
+	\label{tab:valores_teoricos}
+	\begin{tabular}{l|c|c}
+		\hline
+		\textbf{Circuito} & \textbf{$V_{th}$ (V)} & \textbf{$R_{th}$ (k$\Omega$)} \\ \hline
+		Divisor de Tensão & 2,710 & 2,479 \\ [3pt]
+		Divisor + \textit{Buffer} & 2,710 & $\approx 0$ \\ [3pt]
+		\hline
+	\end{tabular}
+	\legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+Estes valores teóricos servirão como referência para comparação com as medições experimentais e estimativas pelo MMEQ realizadas nas etapas subsequentes.
