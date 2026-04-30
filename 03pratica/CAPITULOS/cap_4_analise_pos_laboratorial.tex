@@ -1,0 +1,55 @@
+
+\chapter{Análise Pós-Laboratorial}
+
+A análise final consiste em processar os dados medidos e compará-los com a teoria, buscando dois objetivos principais: (1) recalcular os parâmetros de Thévenin utilizando os valores medidos das resistências; e (2) estimar os parâmetros de Thévenin de ambos os circuitos utilizando o Método dos Mínimos Erros Quadráticos (MMEQ).
+
+\section{Estimativa pelo Método dos Mínimos Erros Quadráticos}
+
+
+\subsection{Comparação dos Resultados}
+
+
+\begin{table}[H]
+	\centering
+	\ABNTEXfontereduzida
+	\caption{Comparação dos parâmetros de Thévenin obtidos por diferentes métodos.}
+	\label{tab:comparacao_thevenin}
+	\begin{tabular}{l|c|c|c|c}
+		\hline
+		\multirow{2}{*}{\textbf{Circuito}} & \multicolumn{2}{c|}{\textbf{$V_{th}$ (V)}} & \multicolumn{2}{c}{\textbf{$R_{th}$ (k$\Omega$)}} \\ \cline{2-5}
+		& Recalc. & MMEQ & Recalc. & MMEQ \\ \hline
+		Divisor de Tensão & 2,756 & 2,748 & 2,451 & 2,423 \\ [3pt]
+		Divisor + \textit{Buffer} & 2,756 & 2,754 & $\approx 0$ & 0,000087 \\ [3pt]
+		\hline
+	\end{tabular}
+	\legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+\subsection{Análise dos Erros}
+
+Os erros inferiores a 1,2\% demonstram excelente concordância entre os valores teóricos recalculados e as estimativas experimentais obtidas pelo MMEQ.
+
+\section{Gráficos de Ajuste}
+A visualização gráfica dos dados experimentais em comparação com as retas ajustadas pelo MMEQ permite uma avaliação qualitativa da linearidade dos circuitos e da precisão do modelo de Thévenin. As figuras a seguir apresentam as curvas características de tensão de saída versus corrente de carga para os dois casos estudados.
+
+\subsection{Comparação Visual}
+
+\section{Análise de Fontes de Erro}
+
+As principais contribuições para os erros observados foram:
+
+\begin{enumerate}
+	\item \textbf{Tolerância dos resistores}: Desvios de até 2,86\% em relação aos valores nominais;
+	
+	\item \textbf{Precisão do multímetro}: Resolução limitada (tipicamente 1~mV para tensão e 0,1~$\Omega$ para resistência);
+	
+	\item \textbf{Resistência do potenciômetro}: A resistência do cursor do potenciômetro adiciona uma componente não linear à carga;
+	
+	\item \textbf{Resistências de contato}: Conexões na \textit{protoboard} introduzem resistências parasitas;
+	
+	\item \textbf{Não idealidade do ampop}: O amplificador real possui resistência de saída finita ($R_o \approx 50$~$\Omega$), correntes de polarização e ganho finito, que afetam minimamente o comportamento ideal;
+	
+	\item \textbf{Efeitos térmicos}: Variações de temperatura durante as medições podem alterar os valores das resistências.
+\end{enumerate}
+
+Apesar destas limitações, os erros permaneceram inferiores a 1,2\%, demonstrando a robustez do procedimento experimental e a validade dos modelos teóricos.

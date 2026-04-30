@@ -1,0 +1,19 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[{Maxima Development Team} 2025]{maxima}
+\abntrefinfo{{Maxima Development Team}}{{Maxima Development Team}}{2025}
+{{Maxima Development Team}. \emph{Maxima: A Computer Algebra System}. 2025.
+  \url{http://maxima.sourceforge.net}.
+Acesso em: mai. 2025.}
+
+\bibitem[Nilsson e Riedel p. 157, 2015]{nilsson}
+\abntrefinfo{Nilsson e Riedel}{NILSSON; RIEDEL}{p. 157, 2015}
+{NILSSON, J.~W.; RIEDEL, S.~A. \emph{Circuitos Elétricos}. 10. ed. São Paulo:
+  Pearson, p. 157, 2015.}
+
+\end{thebibliography}
