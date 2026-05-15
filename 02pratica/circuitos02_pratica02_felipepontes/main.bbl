@@ -5,6 +5,12 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Devices 2025]{ltspice}
+\abntrefinfo{Devices}{DEVICES}{2025}
+{DEVICES, A. \emph{LTSpice – SPICE Simulation Software}. 2025.
+  \url{https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html}.
+Acesso em: mai. 2025.}
+
 \bibitem[{Maxima Development Team} 2025]{maxima}
 \abntrefinfo{{Maxima Development Team}}{{Maxima Development Team}}{2025}
 {{Maxima Development Team}. \emph{Maxima: A Computer Algebra System}. 2025.

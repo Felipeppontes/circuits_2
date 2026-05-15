@@ -1,2 +1,5 @@
 \backcite {nilsson}{{3}{1}{chapter.1}}
-\backcite {maxima}{{4}{2}{chapter.2}}
+\backcite {maxima}{{3}{1}{chapter.1}}
+\backcite {ltspice}{{3}{1}{chapter.1}}
+\backcite {maxima}{{3}{1.1}{section.1.1}}
+\backcite {ltspice}{{3}{1.1}{section.1.1}}

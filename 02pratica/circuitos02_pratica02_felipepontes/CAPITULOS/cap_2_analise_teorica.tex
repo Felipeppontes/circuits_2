@@ -1,56 +1,55 @@
 \chapter{Análise Teórica}
 
-Esta prática de laboratório é dividida em três etapas principais. A primeira consiste na análise teórica do circuito divisor de tensão e do buffer de corrente para obter os equivalentes de Thévenin. A segunda etapa foca na montagem dos circuitos e na coleta de dados experimentais em laboratório. Por fim, a terceira etapa envolve a análise dos dados coletados para estimar os parâmetros de Thévenin utilizando o MMEQ. Para os cálculos e manipulação de equações, foi utilizada a ferramenta de computação simbólica \cite{maxima}.
+Esta prática de laboratório é dividida em duas etapas principais. A primeira consiste na análise teórica do circuito para obtenção da função de transferência, magnitude e fase no domínio da frequência. A segunda etapa foca na montagem do circuito em protoboard e na coleta de dados experimentais utilizando o osciloscópio para diferentes frequências. Para a manipulação das equações algébricas e cálculos numéricos, utilizou-se software de computação simbólica.
 
-\section{O \textit{Buffer} de Corrente}
+\section{O Filtro de Realimentação Múltipla (MFB)}
 
-O \textit{buffer} de corrente é um circuito que permite transferir uma tensão de uma fonte com alta impedância interna para uma carga sem perda significativa de tensão. A configuração básica utiliza um amplificador operacional na configuração não-inversora com realimentação direta (ganho unitário), conforme mostrado na Figura \ref{fig:buffer_basico}.
-
-\begin{figure}[H]
-	\centering
-	\caption{Configuração básica do \textit{buffer} de corrente com amplificador operacional.}
-	\includegraphics[width=0.5\linewidth]{FIGURAS/buffer_basico.png}
-	\label{fig:buffer_basico}
-	\legend{Fonte: Esquema do circuito da prática.}
-\end{figure}
+O circuito analisado é um filtro passa-faixa de segunda ordem com configuração de realimentação múltipla (Multiple Feedback - MFB). Esta topologia utiliza um amplificador operacional para fornecer ganho e isolamento, enquanto os componentes passivos definem a seletividade da frequência. Considerando o modelo do amplificador operacional ideal e aplicando a Lei de Kirchhoff das Correntes (LKC) no domínio da frequência ($s$), a função de transferência é definida por:
 
 \begin{equation}
-	V_{th} = -V_{EE} + I \cdot R_2 = -V_{EE} + \frac{R_2(V_{CC} + V_{EE})}{R_1 + R_2}.
-	\label{eq:vth_divisor}
+	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{-\frac{1}{R_1 C} s}{s^2 + \frac{2}{R_3 C} s + \frac{R_1 + R_2}{R_1 R_2 R_3 C^2}}.
+	\label{eq:transfer_function}
 \end{equation}
 
-Simplificando:
+Para a análise em regime permanente senoidal, faz-se a substituição $s = j\omega$. A magnitude da resposta em frequência é dada por:
 
 \begin{equation}
-	V_{th} = \frac{R_2 \cdot V_{CC} + R_2 \cdot V_{EE} - V_{EE}(R_1 + R_2)}{R_1 + R_2} = \frac{R_2 \cdot V_{CC} - R_1 \cdot V_{EE}}{R_1 + R_2}.
-	\label{eq:vth_simplificada}
+	|H(j\omega)| = \frac{\frac{\omega}{R_1 C}}{\sqrt{ \left( \frac{R_1 + R_2}{R_1 R_2 R_3 C^2} - \omega^2 \right)^2 + \left( \frac{2\omega}{R_3 C} \right)^2 }}.
+	\label{eq:magnitude}
 \end{equation}
 
-\section{Exemplo Numérico}
+A fase do sistema (em graus) é expressa como:
 
-Considere o circuito com os seguintes valores:
+\begin{equation}
+	\phi(\omega) = 180^\circ - 90^\circ - \arctan \left( \frac{\frac{2\omega}{R_3 C}}{\frac{R_1 + R_2}{R_1 R_2 R_3 C^2} - \omega^2} \right).
+	\label{eq:phase}
+\end{equation}
+
+\section{Parâmetros e Valores Teóricos}
+
+Para a validação do modelo, foram utilizados os seguintes valores nominais de componentes:
 \begin{itemize}
-	\item $V_{CC} = V_{EE} = 10$~V
-	\item $R_1 = 3{,}9$~k$\Omega$
-	\item $R_2 = 6{,}8$~k$\Omega$
-	\item $R_o = 50$~$\Omega$ (resistência de saída do ampop)
+	\item $C = 100$~nF
+	\item $R_1 = 470$~$\Omega$
+	\item $R_2 = 470$~$\Omega$
+	\item $R_3 = 47$~k$\Omega$
 \end{itemize}
 
-Os valores calculados estão sumarizados na Tabela \ref{tab:valores_teoricos}.
+A Tabela \ref{tab:valores_teoricos} apresenta a síntese dos valores calculados para as frequências limites e a frequência central de projeto.
 
 \begin{table}[H]
 	\centering
-	\ABNTEXfontereduzida
-	\caption{Valores teóricos dos equivalentes de Thévenin.}
+	\caption{Valores teóricos de magnitude e fase calculados.}
 	\label{tab:valores_teoricos}
 	\begin{tabular}{l|c|c}
 		\hline
-		\textbf{Circuito} & \textbf{$V_{th}$ (V)} & \textbf{$R_{th}$ (k$\Omega$)} \\ \hline
-		Divisor de Tensão & 2,710 & 2,479 \\ [3pt]
-		Divisor + \textit{Buffer} & 2,710 & $\approx 0$ \\ [3pt]
+		\textbf{Frequência (Hz)} & \textbf{Magnitude $|H(j\omega)|$} & \textbf{Fase (Graus)} \\ \hline
+		40 & 0,5947 & -90,68 \\ [3pt]
+		480 (Pico/Ressonância) & 49,9733 & 178,13 \\ [3pt]
+		11000 & 0,3084 & 90,35 \\ [3pt]
 		\hline
 	\end{tabular}
 	\legend{Fonte: Elaborado pelos autores.}
 \end{table}
 
-Estes valores teóricos servirão como referência para comparação com as medições experimentais e estimativas pelo MMEQ realizadas nas etapas subsequentes.
+Estes valores servem como referência para a comparação com os dados coletados experimentalmente, permitindo avaliar a precisão do modelo teórico em relação ao comportamento real do circuito montado em bancada.

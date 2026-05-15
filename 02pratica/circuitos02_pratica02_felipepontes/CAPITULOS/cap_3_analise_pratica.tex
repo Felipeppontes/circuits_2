@@ -1,35 +1,51 @@
 \chapter{Medições em Laboratório}
 
-Na segunda parte da prática, foram montados dois circuitos em \textit{protoboard} : (1) divisor de tensão isolado e (2) divisor de tensão seguido de \textit{buffer} de corrente. As medições foram realizadas para caracterizar os equivalentes de Thévenin de ambos os circuitos através de múltiplas condições de carga.
+Na segunda parte da prática, o circuito de filtro passa-faixa com realimentação múltipla (MFB) foi montado em \textit{protoboard}. As medições foram realizadas para caracterizar a resposta em regime permanente senoidal do sistema, comparando os sinais de entrada e saída através de diversas frequências de operação.
 
 \section{Procedimento Experimental}
-A etapa experimental foi estruturada para permitir a comparação direta entre o divisor de tensão simples e o circuito com \textit{buffer}. Inicialmente, realizou-se a conferência dos componentes e a montagem dos circuitos, seguidas pela coleta sistemática de dados de tensão e corrente para diferentes condições de carga, conforme detalhado nas etapas a seguir.
-\subsection{Preparação dos Circuitos}
+A etapa experimental consistiu na montagem do circuito ativo e na utilização de instrumentos de bancada para a coleta sistemática de dados. O procedimento seguiu uma sequência lógica de conferência de componentes, alimentação do sistema e medição de sinais com o osciloscópio.
 
-Os circuitos foram montados conforme os esquemas das Figuras \ref{fig:divisor_tensao} e \ref{fig:circuito_completo}, utilizando os seguintes componentes:
+\subsection{Preparação do Circuito}
+
+O circuito foi montado utilizando um amplificador operacional alimentado por uma fonte de tensão simétrica ajustada para $V_{CC} = +10$~V e $V_{EE} = -10$~V. Os componentes utilizados foram:
 \begin{itemize}
-	\item 1 amplificador operacional (modelo utilizado);
-	\item Resistores de valores nominais: $R_1 = 3{,}9$~k$\Omega$, $R_2 = 6{,}8$~k$\Omega$, $R_3 = 560$~$\Omega$;
-	\item 1 potenciômetro de 10~k$\Omega$ para ajuste da carga;
-	\item Fonte de tensão simétrica ajustada para $V_{CC} = +10$~V e $V_{EE} = -10$~V.
+	\item 1 amplificador operacional (modelo 741 ou equivalente);
+	\item Resistores de valores nominais: $R_1 = 470~\Omega$, $R_2 = 470~\Omega$ e $R_3 = 47~\text{k}\Omega$;
+	\item 2 capacitores de valor nominal $C = 100$~nF;
+	\item Gerador de sinais configurado para uma onda senoidal com amplitude de $100$~mV.
 \end{itemize}
 
-\subsection{Medição dos Valores Reais dos Componentes}
+\begin{figure}[H]
+	\centering
+	\caption{Circuito montado em protoboard para realização dos testes.}
+	\includegraphics[width=0.7\linewidth]{FIGURAS/circuito_montado.jpg}
+	\label{fig:circuito_montado}
+	\legend{Fonte: Elaborado pelos autores.}
+\end{figure}
 
-Antes da montagem dos circuitos, os valores reais dos resistores foram medidos com um multímetro digital. Os valores estão apresentados na Tabela \ref{tab:componentes_medidos}.
+\subsection{Resultados Experimentais Coletados}
+
+Durante a execução, utilizou-se o osciloscópio para registrar as amplitudes do canal 1 ($V_{out}$) e do canal 2 ($V_{in}$), além da diferença de fase entre os sinais. Os dados obtidos em bancada estão sumarizados na Tabela \ref{tab:dados_experimentais}.
 
 \begin{table}[H]
 	\centering
-	\ABNTEXfontereduzida
-	\caption{Valores medidos dos componentes utilizados nos circuitos.}
-	\label{tab:componentes_medidos}
+	\caption{Dados experimentais obtidos em laboratório.}
+	\label{tab:dados_experimentais}
 	\begin{tabular}{c|c|c|c}
 		\hline
-		\textbf{Componente} & \textbf{Valor Nominal} & \textbf{Valor Medido} & \textbf{Desvio (\%)} \\ \hline
-		$R_1$ & $3{,}9~\text{k}\Omega$ & $3{,}842~\text{k}\Omega$ & 1,49 \\ [3pt]
-		$R_2$ & $6{,}8~\text{k}\Omega$ & $6{,}772~\text{k}\Omega$ & 0,41 \\ [3pt]
-		$R_3$ & $560~\Omega$ & $544~\Omega$ & 2,86 \\ [3pt]
+		\textbf{Frequência (Hz)} & \textbf{$V_{in}$ (mV)} & \textbf{$V_{out}$ (mV)} & \textbf{Fase ($^\circ$)} \\ \hline
+		40,0      & 91,4  & 51,86 & -91,0  \\ [3pt]
+		100,0     & 94,9  & 142,3 & -90,0  \\ [3pt]
+		200,0     & 97,9  & 320,1 & -93,6  \\ [3pt]
+		400,0     & 103,7 & 1593  & -108,8 \\ [3pt]
+		480,0     & 89,6  & 1799  & 135,2  \\ [3pt]
+		480,2     & 100,6 & 4269  & -153,5 \\ [3pt]
+		1101,0    & 91,0  & 364   & 96,5   \\ [3pt]
+		5500,0    & 91,7  & 61,9  & 91,5   \\ [3pt]
+		10984,0   & 91,5  & 31,9  & 89,7   \\ [3pt]
 		\hline
 	\end{tabular}
-	\legend{Fonte: Elaborado pelos autores.}
+	\legend{Fonte: Dados coletados em laboratório.}
 \end{table}
+
+Estes valores experimentais permitem o cálculo da magnitude real da função de transferência através da razão $V_{out}/V_{in}$, possibilitando a comparação com o modelo teórico desenvolvido na etapa anterior.
