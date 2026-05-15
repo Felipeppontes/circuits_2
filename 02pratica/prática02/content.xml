@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--   Created using wxMaxima 24.02.1   -->
+<!--https://wxMaxima-developers.github.io/wxmaxima/-->
+
+<wxMaximaDocument version="1.5" zoom="100" activecell="3">
+
+<cell type="title" sectioning_level="1">
+<editor type="title" sectioning_level="1">
+<line>PRÁTICA 02 - LAB. CIRCUITS 2</line>
+</editor>
+
+</cell>
+
+<cell type="subsection" sectioning_level="3">
+<editor type="subsection" sectioning_level="3">
+<line>Script para testar para obter os resultados</line>
+</editor>
+
+</cell>
+
+<cell type="code">
+<input>
+<editor type="input">
+<line>/* Definição dos componentes */&#010;R1: 470;&#010;R2: 470;&#010;R3: 47000;&#010;C: 100*10^-9;&#010;&#010;/* Função de Transferência H(s) */&#010;H(s) := (-(1/(R1*C))*s) / (s^2 + (2/(R3*C))*s + (R1+R2)/(R1*R2*R3*C^2));&#010;&#010;/* Funções para Magnitude e Fase (em graus) */&#010;mag(f) := float(cabs(at(H(s), s=%i*2*%pi*f)));&#010;fase(f) := float(carg(at(H(s), s=%i*2*%pi*f)) * 180/%pi);&#010;&#010;/* Exemplo de cálculo para 480 Hz */&#010;print(&quot;Magnitude Hz: &quot;, mag(5500));&#010;print(&quot;Fase em 480Hz: &quot;, fase(-127));</line>
+</editor>
+</input>
+<output>
+<mth><lbl altCopy="(R1)&#009;" userdefinedlabel="R1">(%o217) </lbl><n>470</n><lbl altCopy="(R2)&#009;" userdefinedlabel="R2">(%o218) </lbl><n>470</n><lbl altCopy="(R3)&#009;" userdefinedlabel="R3">(%o219) </lbl><n>47000</n><lbl altCopy="(C)&#009;" userdefinedlabel="C">(%o220) </lbl><f><r><n>1</n></r><r><n>10000000</n></r></f><lbl altCopy="(%o221)&#009;">(%o221) </lbl><fn><r><fnm>H</fnm></r><r><p><v>s</v></p></r></fn><fnm>:=</fnm><f><r><fnm>−</fnm><r><p><f><r><n>1</n></r><r><v>R1</v><h>·</h><v>C</v></r></f></p></r><h>·</h><v>s</v></r><r><e><r><v>s</v></r><r><n>2</n></r></e><fnm>+</fnm><f><r><n>2</n></r><r><v>R3</v><h>·</h><v>C</v></r></f><h>·</h><v>s</v><fnm>+</fnm><f><r><v>R1</v><fnm>+</fnm><v>R2</v></r><r><v>R1</v><h>·</h><v>R2</v><h>·</h><v>R3</v><h>·</h><e><r><v>C</v></r><r><n>2</n></r></e></r></f></r></f><lbl altCopy="(%o222)&#009;">(%o222) </lbl><fn><r><fnm>mag</fnm></r><r><p><v>f</v></p></r></fn><fnm>:=</fnm><fn><r><fnm altCopy="float">float</fnm></r><r><p><fn><r><fnm altCopy="cabs">cabs</fnm></r><r><p><fn><r><fnm altCopy="at">at</fnm></r><r><p><fn><r><fnm>H</fnm></r><r><p><v>s</v></p></r></fn><fnm>,</fnm><v>s</v><fnm>=</fnm><s>%i</s><h>·</h><n>2</n><h>·</h><s>π</s><h>·</h><v>f</v></p></r></fn></p></r></fn></p></r></fn><lbl altCopy="(%o223)&#009;">(%o223) </lbl><fn><r><fnm>fase</fnm></r><r><p><v>f</v></p></r></fn><fnm>:=</fnm><fn><r><fnm altCopy="float">float</fnm></r><r><p><f><r><fn><r><fnm altCopy="carg">carg</fnm></r><r><p><fn><r><fnm altCopy="at">at</fnm></r><r><p><fn><r><fnm>H</fnm></r><r><p><v>s</v></p></r></fn><fnm>,</fnm><v>s</v><fnm>=</fnm><s>%i</s><h>·</h><n>2</n><h>·</h><s>π</s><h>·</h><v>f</v></p></r></fn></p></r></fn><h>·</h><n>180</n></r><r><s>π</s></r></f></p></r></fn><st breakline="true">Magnitude Hz: </st><fnm></fnm><n>0.6203421045354849</n><fnm></fnm><lbl altCopy="(%o224)&#009;">(%o224) </lbl><n>0.6203421045354849</n><st breakline="true">Fase em 480Hz: </st><fnm></fnm><n>92.31014505046669</n><fnm></fnm><lbl altCopy="(%o225)&#009;">(%o225) </lbl><n>92.31014505046669</n>
+</mth></output>
+</cell>
+
+<cell type="subsection" sectioning_level="3">
+<editor type="subsection" sectioning_level="3">
+<line>Dados: </line>
+</editor>
+
+</cell>
+
+<cell type="text">
+<editor type="text">
+<line>Valores dos resistores: </line>
+</editor>
+
+</cell>
+
+<cell type="text">
+<editor type="text">
+<line>R1:  0.4721 kΩ&#010;R2:   0.473 kΩ&#010;R3: 46.31 kΩ</line>
+</editor>
+
+</cell>
+
+<cell type="text">
+<editor type="text">
+<line>Valores para cada:&#010;&#010;-&#010;</line>
+</editor>
+
+</cell>
+
+</wxMaximaDocument>
