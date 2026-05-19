@@ -1,16 +1,20 @@
 \chapter{Introdução}
 
- \cite{nilsson}.
+Sistemas de segunda ordem aparecem frequentemente na prática da engenharia eletrônica, seja de forma isolada ou como blocos construtivos de sistemas maiores, o que torna o seu estudo fundamental para o projeto de circuitos robustos. O comportamento dinâmico desses sistemas, caracterizado por respostas transitórias e em regime permanente, pode ser moldado através do uso de amplificadores operacionais aliados a elementos armazenadores de energia, como capacitores.
 
+Nesta prática de laboratório, analisou-se o comportamento transiente e permanente de um circuito de segunda ordem implementado através de um amplificador operacional, assumindo um modelo simplificado ideal, que atua especificamente como um filtro passa-baixa. Para a compreensão integral da dinâmica do circuito, o trabalho foi estruturado em duas etapas complementares: uma análise teórica aprofundada utilizando o software de computação simbólica Maxima \cite{maxima} e a subsequente comprovação experimental em bancada.
 
-Nesta prática de laboratório, realizou-se a análise teórica e experimental de um \textit{buffer} de corrente implementado com amplificador operacional, aplicando o Teorema de Thévenin para caracterização dos circuitos equivalentes. O trabalho foi dividido em três etapas principais: análise teórica utilizando o software de computação simbólica \cite{maxima}, medições em laboratório com multímetro e fonte de tensão simétrica, e análise pós-laboratorial empregando o Método dos Mínimos Erros Quadráticos (MMEQ) para estimativa dos parâmetros de Thévenin.
+Durante a etapa teórica, aplicaram-se conceitos de modelagem linear para determinar a função de transferência do sistema no domínio de Laplace, possibilitando o traçado analítico dos gráficos de Bode para o regime permanente e o cálculo da resposta ao degrau no domínio do tempo. Na fase experimental, os circuitos foram montados em \textit{protoboard} e submetidos a testes práticos utilizando equipamentos de instrumentação, tais como osciloscópio e gerador de sinais, visando corroborar as frequências de corte e de ressonância, bem como as métricas do regime transitório observadas teoricamente.
 
 \section{Objetivos}
 
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-\end{itemize}
+A presente prática laboratorial teve como norte consolidar o embasamento teórico-prático acerca de filtros ativos. Os objetivos específicos incluem:
 
-O procedimento envolveu a determinação dos equivalentes de Thévenin do divisor de tensão isoladamente e do conjunto divisor-\textit{buffer}, seguido de medições com cargas variáveis implementadas através de potenciômetro e resistor fixo. A atividade visou consolidar conceitos fundamentais de amplificação de corrente, isolamento de estágios e análise de circuitos equivalentes, habilidades essenciais para o projeto de sistemas eletrônicos robustos.
+\begin{itemize}
+	\item Calcular analiticamente e interpretar os gráficos de Bode (magnitude e fase) de um circuito eletrônico de segunda ordem;
+	\item Analisar matematicamente a resposta transitória do circuito frente a uma excitação em degrau, determinando parâmetros como tempos de subida e de acomodação;
+	\item Praticar e consolidar as técnicas de análise de circuitos empregando amplificadores operacionais com modelos lineares;
+	\item Medir experimentalmente as características da resposta em frequência (gráfico de Bode) utilizando osciloscópio e gerador de sinais;
+	\item Avaliar e medir no osciloscópio as características da resposta no tempo em regime transitório do circuito implementado;
+	\item Contrastar as respostas de um sistema com amortecimento supercrítico (Circuito 1) e de um sistema subamortecido (Circuito 2), evidenciando os impactos na seletividade do filtro e nas oscilações transitórias.
+\end{itemize}

@@ -1,0 +1,41 @@
+\chapter{Análise Pós-Laboratorial}
+
+A análise final consiste no processamento dos dados experimentais coletados em bancada e sua comparação direta com o modelo matemático desenvolvido na análise teórica. Os objetivos principais desta etapa são: (1) validar a função de transferência $H(s)$ através da comparação de magnitude e fase; e (2) identificar as causas de desvios entre o comportamento ideal previsto e o desempenho real do filtro em laboratório.
+
+\section{Comparação entre Teoria e Experimento}
+
+A Tabela \ref{tab:comparacao_resultados} apresenta a comparação entre os valores calculados via software de álgebra simbólica e os valores medidos. A magnitude experimental foi obtida pela razão entre as amplitudes registradas nos canais do osciloscópio ($V_{out}/V_{in}$).
+
+\begin{table}[H]
+	\centering
+	\ABNTEXfontereduzida
+	\caption{Comparação de Magnitude e Fase: Teórico vs. Experimental.}
+	\label{tab:comparacao_resultados}
+	\begin{tabular}{l|c|c|c|c}
+		\hline
+		\multirow{2}{*}{\textbf{Freq. (Hz)}} & \multicolumn{2}{c|}{\textbf{Magnitude $|H(j\omega)|$}} & \multicolumn{2}{c}{\textbf{Fase ($^\circ$)}} \\ \cline{2-5}
+		& Teórico & Exp. & Teórico & Exp. \\ \hline
+		40,0      & 0,5947  & 0,5674  & -90,68  & -91,0  \\ [3pt]
+		100,0     & 1,5431  & 1,4995  & -91,77  & -90,0  \\ [3pt]
+		400,0     & 18,1956 & 15,3616 & -111,34 & -108,8 \\ [3pt]
+		480,2     & 49,9733 & 42,4354 & 178,13  & -153,5 \\ [3pt]
+		1101,0    & 3,7874  & 4,0000  & 94,34   & 96,5   \\ [3pt]
+		10984,0   & 0,3084  & 0,3486  & 90,35   & 89,7   \\ [3pt]
+		\hline
+	\end{tabular}
+	\legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+\section{Resultados Gráficos (Telas do Osciloscópio)}
+
+\subsection{Frequências de Corte e Ressonância}
+
+
+\section{Análise de Fontes de Erro}
+
+As discrepâncias observadas entre o modelo matemático e os dados de bancada podem ser atribuídas aos seguintes fatores:
+
+\begin{enumerate}
+	\item \textbf{Tolerância dos Componentes}: Capacitores cerâmicos de $100$ nF possuem variações que impactam a precisão.
+	\item \textbf{Instrumentação}: Precisão do gerador de sinais e a resolução do osciloscópio.
+\end{enumerate}

@@ -1,0 +1,27 @@
+\chapter{Análise Teórica}
+
+Esta etapa consiste na modelagem matemática do filtro passa-faixa de segunda ordem com configuração de realimentação múltipla (MFB).
+
+\section{Função de Transferência}
+
+Aplicando a Lei de Kirchhoff das Correntes (LKC) no domínio da frequência ($s$) e considerando o amplificador operacional ideal, a função de transferência é definida por:
+
+\begin{equation}
+	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{-\frac{1}{R_1 C} s}{s^2 + \frac{2}{R_3 C} s + \frac{R_1 + R_2}{R_1 R_2 R_3 C^2}}
+\end{equation}
+
+Para os valores nominais utilizados ($R_1 = 470\,\Omega$, $R_2 = 470\,\Omega$, $R_3 = 47\,k\Omega$ e $C = 100\,nF$), a Tabela \ref{tab:valores_teoricos} apresenta os valores calculados via software \cite{maxima}.
+
+\begin{table}[htb]
+	\centering
+	\caption{Valores teóricos de magnitude e fase.}
+	\label{tab:valores_teoricos}
+	\begin{tabular}{c|c|c}
+		\hline
+		\textbf{Frequência (Hz)} & \textbf{Magnitude $|H(j\omega)|$} & \textbf{Fase ($^\circ$)} \\ \hline
+		40      & 0,5947    & -90,68  \\
+		480     & 49,9733   & 178,13  \\
+		11000   & 0,3084    & 90,35   \\ \hline
+	\end{tabular}
+	\legend{Fonte: Elaborado pelos autores.}
+\end{table}
