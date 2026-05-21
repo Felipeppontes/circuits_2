@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: ./CAPITULOS/cap_1_Introducao.aux
@@ -19,52 +19,69 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2091 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2091 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2091 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2091 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2091 of file abntex2-alf.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2146 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2146 of file abntex2-alf.bst
+Too many commas in name 1 of "Benito van der Zander, Jan Sundermeyer, Daniel Braun, Tim Hoffmann" for entry texstudio
+while executing---line 2146 of file abntex2-alf.bst
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 4 entries,
+You've used 5 entries,
             6714 wiz_defined-function locations,
-            1219 strings with 9878 characters,
-and the built_in function-call counts, 3010 in all, are:
-= -- 357
-> -- 63
+            1225 strings with 10002 characters,
+and the built_in function-call counts, 3619 in all, are:
+= -- 402
+> -- 78
 < -- 1
-+ -- 68
-- -- 20
-* -- 174
-:= -- 460
-add.period$ -- 14
-call.type$ -- 4
-change.case$ -- 30
-chr.to.int$ -- 7
-cite$ -- 3
-duplicate$ -- 111
-empty$ -- 228
-format.name$ -- 93
-if$ -- 713
++ -- 73
+- -- 25
+* -- 210
+:= -- 545
+add.period$ -- 19
+call.type$ -- 5
+change.case$ -- 38
+chr.to.int$ -- 8
+cite$ -- 4
+duplicate$ -- 143
+empty$ -- 286
+format.name$ -- 116
+if$ -- 859
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 67
-newline$ -- 22
-num.names$ -- 15
-pop$ -- 102
+missing$ -- 85
+newline$ -- 27
+num.names$ -- 20
+pop$ -- 124
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 16
 quote$ -- 0
-skip$ -- 190
+skip$ -- 224
 stack$ -- 1
-substring$ -- 133
-swap$ -- 47
+substring$ -- 154
+swap$ -- 61
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 20
+while$ -- 26
 width$ -- 0
-write$ -- 53
+write$ -- 68
+(There were 8 error messages)
