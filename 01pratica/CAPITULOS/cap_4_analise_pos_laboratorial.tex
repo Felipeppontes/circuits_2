@@ -1,55 +1,35 @@
-
 \chapter{Análise Pós-Laboratorial}
 
-A análise final consiste em processar os dados medidos e compará-los com a teoria, buscando dois objetivos principais: (1) recalcular os parâmetros de Thévenin utilizando os valores medidos das resistências; e (2) estimar os parâmetros de Thévenin de ambos os circuitos utilizando o Método dos Mínimos Erros Quadráticos (MMEQ).
+A etapa de resultados consolida os dados numéricos extraídos das simulações transientes no LTSpice e os confronta com os valores nominais estipulados no projeto teórico (calculados via Maxima). O projeto do conversor \textit{Buck} estabeleceu como requisitos fundamentais uma tensão de saída contínua $V_0 = 2,5\text{ V}$ (metade da tensão de alimentação $V_{CC} = 5\text{ V}$) e uma ondulação máxima de tensão ($\Delta V$) estritamente limitada a $0,1\%$ de $V_{CC}$, o que corresponde a $5,0\text{ mV}$.
 
-\section{Estimativa pelo Método dos Mínimos Erros Quadráticos}
-
-
-\subsection{Comparação dos Resultados}
-
+As Tabelas \ref{tab:resultados_v0} e \ref{tab:resultados_deltav} apresentam a comparação direta entre as grandezas teóricas e as medições experimentais obtidas com os cursores do simulador para as quatro combinações de carga e frequência.
 
 \begin{table}[H]
 	\centering
-	\ABNTEXfontereduzida
-	\caption{Comparação dos parâmetros de Thévenin obtidos por diferentes métodos.}
-	\label{tab:comparacao_thevenin}
-	\begin{tabular}{l|c|c|c|c}
+	\caption{Comparação dos valores de Tensão Média de Saída ($V_0$).}
+	\label{tab:resultados_v0}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{cccccc}
 		\hline
-		\multirow{2}{*}{\textbf{Circuito}} & \multicolumn{2}{c|}{\textbf{$V_{th}$ (V)}} & \multicolumn{2}{c}{\textbf{$R_{th}$ (k$\Omega$)}} \\ \cline{2-5}
-		& Recalc. & MMEQ & Recalc. & MMEQ \\ \hline
-		Divisor de Tensão & 2,756 & 2,748 & 2,451 & 2,423 \\ [3pt]
-		Divisor + \textit{Buffer} & 2,756 & 2,754 & $\approx 0$ & 0,000087 \\ [3pt]
-		\hline
+		\textbf{Cenário} & \textbf{Resistência ($R$)} & \textbf{Indutância ($L$)} & \textbf{$V_0$ Teórico} & \textbf{$V_0$ Simulado} & \textbf{Erro (\%)} \\ \hline
+		1 & $5\,\Omega$ & $125\text{ mH}$ & $2,50\text{ V}$ & $2,9477\text{ V}$ & $17,91\%$ \\
+		2 & $5\,\Omega$ & $25\text{ mH}$ & $2,50\text{ V}$ & $2,5016\text{ V}$ & $0,06\%$ \\
+		3 & $1\,\Omega$ & $25\text{ mH}$ & $2,50\text{ V}$ & $2,4957\text{ V}$ & $0,17\%$ \\
+		4 & $1\,\Omega$ & $5\text{ mH}$ & $2,50\text{ V}$ & $2,4976\text{ V}$ & $0,09\%$ \\ \hline
 	\end{tabular}
-	\legend{Fonte: Elaborado pelos autores.}
 \end{table}
 
-\subsection{Análise dos Erros}
-
-Os erros inferiores a 1,2\% demonstram excelente concordância entre os valores teóricos recalculados e as estimativas experimentais obtidas pelo MMEQ.
-
-\section{Gráficos de Ajuste}
-A visualização gráfica dos dados experimentais em comparação com as retas ajustadas pelo MMEQ permite uma avaliação qualitativa da linearidade dos circuitos e da precisão do modelo de Thévenin. As figuras a seguir apresentam as curvas características de tensão de saída versus corrente de carga para os dois casos estudados.
-
-\subsection{Comparação Visual}
-
-\section{Análise de Fontes de Erro}
-
-As principais contribuições para os erros observados foram:
-
-\begin{enumerate}
-	\item \textbf{Tolerância dos resistores}: Desvios de até 2,86\% em relação aos valores nominais;
-	
-	\item \textbf{Precisão do multímetro}: Resolução limitada (tipicamente 1~mV para tensão e 0,1~$\Omega$ para resistência);
-	
-	\item \textbf{Resistência do potenciômetro}: A resistência do cursor do potenciômetro adiciona uma componente não linear à carga;
-	
-	\item \textbf{Resistências de contato}: Conexões na \textit{protoboard} introduzem resistências parasitas;
-	
-	\item \textbf{Não idealidade do ampop}: O amplificador real possui resistência de saída finita ($R_o \approx 50$~$\Omega$), correntes de polarização e ganho finito, que afetam minimamente o comportamento ideal;
-	
-	\item \textbf{Efeitos térmicos}: Variações de temperatura durante as medições podem alterar os valores das resistências.
-\end{enumerate}
-
-Apesar destas limitações, os erros permaneceram inferiores a 1,2\%, demonstrando a robustez do procedimento experimental e a validade dos modelos teóricos.
+\begin{table}[H]
+	\centering
+	\caption{Comparação dos valores de Ondulação de Tensão ($\Delta V$).}
+	\label{tab:resultados_deltav}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{cccccc}
+		\hline
+		\textbf{Cenário} & \textbf{Resistência ($R$)} & \textbf{Indutância ($L$)} & \textbf{$\Delta V$ Teórico} & \textbf{$\Delta V$ Simulado} & \textbf{Erro (\%)} \\ \hline
+		1 & $5\,\Omega$ & $125\text{ mH}$ & $5,00\text{ mV}$ & $4,9511\text{ mV}$ & $0,98\%$ \\
+		2 & $5\,\Omega$ & $25\text{ mH}$ & $5,00\text{ mV}$ & $4,8635\text{ mV}$ & $2,73\%$ \\
+		3 & $1\,\Omega$ & $25\text{ mH}$ & $5,00\text{ mV}$ & $4,9165\text{ mV}$ & $1,67\%$ \\
+		4 & $1\,\Omega$ & $5\text{ mH}$ & $5,00\text{ mV}$ & $4,8600\text{ mV}$ & $2,80\%$ \\ \hline
+	\end{tabular}
+\end{table}
