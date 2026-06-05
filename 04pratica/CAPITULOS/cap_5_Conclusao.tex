@@ -1,3 +1,13 @@
 \chapter{Conclusão}
 
-A prática validou a modelagem de filtros ativos MFB em regime permanente senoidal. O comportamento de passa-faixa foi verificado experimentalmente, com a frequência central próxima ao projetado (480 Hz). A concordância entre a teoria e a prática confirma a eficácia do uso de funções de transferência para o projeto de sistemas de condicionamento de sinais.
+A presente prática laboratorial atingiu com êxito os seus objetivos ao caracterizar experimentalmente a resposta em frequência de um filtro RC passa-baixa e ao demonstrar a mitigação do fenómeno conhecido como "efeito de carga" através do uso de um amplificador operacional. A correlação entre a modelagem matemática e os ensaios de bancada atestou a validade das ferramentas de análise linear para prever o comportamento dinâmico de circuitos.
+
+A análise cruzada dos três cenários testados permite extrair conclusões técnicas inequívocas:
+\begin{itemize}
+	\item \textbf{A vulnerabilidade dos filtros passivos:} O ensaio do Circuito 2 provou que a conexão direta de uma carga resistiva ($R_L \approx 32,3\text{ k}\Omega$) à saída do filtro degrada severamente o seu desempenho original. O ganho na banda de passagem sofreu uma forte atenuação (caindo para cerca de $0,40\text{ V/V}$) e a frequência de corte foi drasticamente deslocada para $121\text{ Hz}$, descaracterizando por completo o projeto inicial estabelecido para a faixa dos $70\text{ Hz}$.
+	\item \textbf{A eficácia do isolamento ativo:} A introdução do \textit{buffer} de tensão (Circuito 3) provou ser a solução ideal para o problema de acoplamento. Tirando partido da elevadíssima impedância de entrada do ampop, o circuito restaurou o ganho quase unitário ($0,96\text{ V/V}$) e reestabeleceu a frequência de corte em $69\text{ Hz}$, isolando perfeitamente a carga do estágio de filtragem sem consumir corrente relevante da malha RC.
+\end{itemize}
+
+As ligeiras discrepâncias registadas entre os recálculos teóricos e as medições em laboratório — com erros na margem dos $0,2\%$ a $4,5\%$ nas medições com \textit{buffer} e em vazio — encontram-se estritamente dentro da margem de aceitação. Estes desvios são perfeitamente justificáveis pela tolerância intrínseca dos componentes comerciais, pelas resistências parasitas da \textit{protoboard} e pelas limitações de resolução na leitura pico-a-pico do osciloscópio.
+
+Em suma, a experiência validou o uso das equações deduzidas via Transformada de Laplace no dimensionamento de filtros e confirmou que o recurso a seguidores de tensão é uma prática de projeto insubstituível para garantir a integridade de sinais em sistemas eletrónicos compostos por múltiplos estágios.

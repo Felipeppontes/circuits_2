@@ -1,21 +1,21 @@
 \chapter{Introdução}
 
-O estudo da resposta de circuitos lineares em regime permanente senoidal é fundamental para a compreensão do comportamento de sistemas no domínio da frequência \cite{nilsson}. 
+Os filtros passivos, como as topologias RC, são blocos fundamentais em sistemas eletrônicos, sendo amplamente empregados no condicionamento de sinais e na atenuação de componentes de alta frequência indesejadas. A análise destes circuitos no domínio da frequência, frequentemente facilitada pelo uso da Transformada de Laplace, permite prever o seu comportamento dinâmico e determinar parâmetros cruciais, como a frequência de corte e o ganho estático.
 
-Nesta prática de laboratório, projetou-se e implementou-se um filtro passivo RC passa-baixa, analisando o comportamento da magnitude de sua resposta em frequência, com e sem carga. Além disso, analisou-se a utilização de um amplificador operacional configurado como \textit{buffer} para diminuir o impacto da referida carga no comportamento do circuito. O trabalho foi estruturado em etapas complementares: a análise analítica através da aplicação da transformada de Laplace para a obtenção da função de transferência e do diagrama de Bode  utilizando o software WxMaxima \cite{maxima}, a simulação computacional via LTSpice \cite{ltspice} atuando como redundância para a validação das equações teóricas, e as medições experimentais em bancada.
+Contudo, a aplicação prática de filtros passivos apresenta desafios significativos quando estes são acoplados a outros estágios de um circuito. A conexão de uma carga resistiva direta altera a impedância equivalente do sistema, provocando o desvio da frequência de corte original e a atenuação do ganho, um fenômeno conhecido como efeito de carga. Para mitigar este problema, recorre-se frequentemente ao uso de amplificadores operacionais configurados como seguidores de tensão (\textit{buffers}). Devido à sua elevada impedância de entrada e baixa impedância de saída, o \textit{buffer} atua como um isolador ideal, garantindo que o filtro opere de forma independente da carga conectada.
 
-As atividades experimentais foram realizadas nas dependências do Laboratório Didático de Eletrônica (LDE), que compõe a infraestrutura do Departamento de Eletrônica e Sistemas (DES), entre os dias 19 e 26 de maio de 2026. Para assegurar as boas práticas de desenvolvimento e a rastreabilidade do documento, adotou-se o GitHub para o versionamento contínuo dos \textit{scripts} gerados no WxMaxima e da estrutura deste relatório, o qual foi redigido e compilado em \LaTeX\ utilizando o editor TeXstudio \cite{texstudio}.
+Nesta prática laboratorial, realizou-se o projeto, a análise matemática teórica e a validação experimental de um filtro passa-baixa RC nas suas configurações sem carga, com carga resistiva direta e com isolamento ativo via \textit{buffer}. O estudo teórico foi suportado pela ferramenta de computação simbólica Maxima \cite{maxima} para a resolução algébrica e determinação das funções de transferência. Posteriormente, os ensaios de bancada permitiram extrair o diagrama de Bode de magnitude real do circuito e confrontá-lo com o modelo analítico.
 
 \section{Objetivos}
 
-Os objetivos principais desta prática consistem em:
+A presente prática teve como objetivo central explorar as características operacionais e os limites de aplicação de filtros passivos de primeira ordem. Os objetivos específicos definidos para o trabalho incluem:
 
 \begin{itemize}
-	\item Conhecer as características de um circuito RC que se comporta como um filtro passa-baixa.
-	\item Treinar a análise de circuitos com carga e com fontes não-ideais.
-	\item Aplicar a transformada de Laplace na análise teórica de circuitos elétricos.
-	\item Usar um amplificador operacional na configuração de \textit{buffer}.
-	\item Medir grandezas elétricas no circuito utilizando um osciloscópio e um gerador de sinais.
-	\item Medir o comportamento na frequência de circuitos de filtros para comparar empiricamente com o comportamento teórico esperado.
-	\item Usar softwares de computação simbólica (neste caso, o WxMaxima) para resolver sistemas de equações algébricas, aplicando-os na resolução e projeto de circuitos elétricos \cite{maxima}.
+	\item Compreender e caracterizar o comportamento dinâmico de um circuito RC operando como um filtro passa-baixa;
+	\item Aplicar a Transformada de Laplace como ferramenta principal na análise de circuitos e na obtenção das funções de transferência;
+	\item Utilizar o software de computação simbólica Maxima \cite{maxima} para resolver as equações algébricas resultantes da modelagem linear do circuito;
+	\item Treinar a análise de circuitos elétricos submetidos a condições de carga e alimentados por fontes não ideais;
+	\item Empregar um amplificador operacional na configuração de \textit{buffer} para minimizar o impacto de uma carga no comportamento do filtro;
+	\item Realizar medições experimentais das grandezas elétricas utilizando um osciloscópio e um gerador de sinais;
+	\item Levantar o comportamento na frequência dos circuitos de filtragem em bancada para comparar e validar a magnitude de resposta em frequência esperada de forma teórica.
 \end{itemize}
