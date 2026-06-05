@@ -1,16 +1,21 @@
 \chapter{Introdução}
 
- \cite{nilsson}.
+Conversores CC-CC (corrente contínua para corrente contínua) desempenham um papel fundamental na eletrônica moderna, sendo amplamente utilizados no gerenciamento de potência para adequar níveis de tensão entre fontes e cargas. Um dos conversores mais clássicos e de expressivo interesse prático é o conversor \textit{Buck}, cuja principal finalidade é reduzir de forma eficiente uma tensão contínua de entrada para um nível de tensão menor na saída através de um mecanismo de chaveamento.
 
+A análise do comportamento transitório e de regime permanente desses circuitos apresenta elevada complexidade algébrica devido à presença de múltiplos elementos armazenadores de energia (indutores e capacitores) submetidos a transitórios contínuos. A abordagem clássica para a resolução da dinâmica do circuito é viabilizada pelo emprego da Transformada de Laplace, que converte o intrincado sistema de equações diferenciais no domínio do tempo para um sistema de equações algébricas lineares no domínio da frequência complexa ($s$). Contudo, o grande volume de manipulações matemáticas associado à expansão em frações parciais e à obtenção da transformada inversa torna o cálculo estritamente manual exaustivo e suscetível a erros.
 
-Nesta prática de laboratório, realizou-se a análise teórica e experimental de um \textit{buffer} de corrente implementado com amplificador operacional, aplicando o Teorema de Thévenin para caracterização dos circuitos equivalentes. O trabalho foi dividido em três etapas principais: análise teórica utilizando o software de computação simbólica \cite{maxima}, medições em laboratório com multímetro e fonte de tensão simétrica, e análise pós-laboratorial empregando o Método dos Mínimos Erros Quadráticos (MMEQ) para estimativa dos parâmetros de Thévenin.
+Nesse contexto, esta primeira prática de laboratório introduz o uso estratégico de ferramentas computacionais de álgebra simbólica e cálculo numérico. Através do software Maxima \cite{maxima}, realizou-se a resolução automatizada do sistema de equações algébricas e a obtenção precisa das expressões temporais do circuito. Ademais, para contornar a natureza não-linear do diodo presente no conversor \textit{Buck} mantendo a validade da Teoria de Circuitos Lineares, adotou-se um modelo linear por partes (\textit{piecewise linear}). Este modelo subdivide a operação do componente em dois modos lineares distintos e excludentes: polarização reversa (modelado como circuito aberto) e polarização direta (modelado como uma fonte de tensão constante).
+
+O trabalho foi estruturado partindo da derivação manual das equações topológicas do circuito para as duas configurações da chave, passando pela solução computacional simbólica (analisando os regimes transitório e permanente) e culminando na validação dos modelos matemáticos através de simulações transientes no software LTSpice \cite{ltspice}.
 
 \section{Objetivos}
 
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-\end{itemize}
+A presente prática laboratorial tem como intuito familiarizar o estudante com o fluxo misto de análise algébrica e simulação de circuitos chaveados de segunda ordem. Os objetivos específicos incluem:
 
-O procedimento envolveu a determinação dos equivalentes de Thévenin do divisor de tensão isoladamente e do conjunto divisor-\textit{buffer}, seguido de medições com cargas variáveis implementadas através de potenciômetro e resistor fixo. A atividade visou consolidar conceitos fundamentais de amplificação de corrente, isolamento de estágios e análise de circuitos equivalentes, habilidades essenciais para o projeto de sistemas eletrônicos robustos.
+\begin{itemize}
+	\item Consolidar a metodologia de análise de circuitos no domínio da frequência via Transformada de Laplace, incorporando corretamente as condições iniciais aos modelos s-domain de capacitores e indutores;
+	\item Utilizar o sistema de computação simbólica Maxima \cite{maxima} para resolver sistemas de equações algébricas parametrizadas e calcular a Transformada Inversa de Laplace de forma automatizada;
+	\item Modelar o comportamento de dispositivos não-lineares (como o diodo) empregando aproximações lineares por partes baseadas nos estados da topologia do circuito;
+	\item Analisar matematicamente e extrair métricas do comportamento transitório e do regime permanente — especificamente a tensão média de saída ($V_0$) e a ondulação de tensão (\textit{ripple}, $\Delta V$) — de um conversor \textit{Buck} simplificado;
+	\item Validar as deduções algébricas e os limites teóricos confrontando-os com os dados extraídos de simulações computacionais realizadas no LTSpice \cite{ltspice}.
+\end{itemize}
