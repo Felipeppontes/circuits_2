@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.8)  5 JUN 2026 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.8)  6 JUN 2026 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,30 +1305,26 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
 
 (./CAPITULOS/cap_2_analise_teorica.tex
-
-LaTeX Warning: Reference `fig:modelagem_diodo' on page 5 undefined on input lin
-e 9.
-
-<FIGURAS/representacao_gráfica_diodo.png, id=96, 279.0425pt x 226.8475pt>
+<FIGURAS/representacao_gráfica_diodo.png, id=98, 279.0425pt x 226.8475pt>
 File: FIGURAS/representacao_gráfica_diodo.png Graphic file (type png)
 <use FIGURAS/representacao_gráfica_diodo.png>
 Package pdftex.def Info: FIGURAS/representacao_gráfica_diodo.png  used on inpu
 t line 15.
 (pdftex.def)             Requested size: 143.3234pt x 116.51796pt.
-<FIGURAS/modelo_curva_tensão_corrente.png, id=98, 559.08875pt x 323.2075pt>
+<FIGURAS/modelo_curva_tensão_corrente.png, id=100, 559.08875pt x 323.2075pt>
 File: FIGURAS/modelo_curva_tensão_corrente.png Graphic file (type png)
 <use FIGURAS/modelo_curva_tensão_corrente.png>
 Package pdftex.def Info: FIGURAS/modelo_curva_tensão_corrente.png  used on inp
 ut line 21.
 (pdftex.def)             Requested size: 184.27249pt x 106.52563pt.
-[5
+ [5
 
 
 
 
  <./FIGURAS/representacao_gráfica_diodo.png> <./FIGURAS/modelo_curva_tensão_c
 orrente.png>]
-<FIGURAS/modelo_buck.png, id=109, 624.3325pt x 200.75pt>
+<FIGURAS/modelo_buck.png, id=111, 624.3325pt x 200.75pt>
 File: FIGURAS/modelo_buck.png Graphic file (type png)
 <use FIGURAS/modelo_buck.png>
 Package pdftex.def Info: FIGURAS/modelo_buck.png  used on input line 39.
@@ -1371,7 +1367,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 80.
 
 [7]
-<FIGURAS/tensão_saída_período_onda_quadrada_controle_chave.png, id=137, 624.
+<FIGURAS/tensão_saída_período_onda_quadrada_controle_chave.png, id=139, 624.
 3325pt x 331.2375pt>
 File: FIGURAS/tensão_saída_período_onda_quadrada_controle_chave.png Graphic 
 file (type png)
@@ -1429,10 +1425,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \openout2 = `./CAPITULOS/cap_3_analise_pratica.aux'.
 
  (./CAPITULOS/cap_3_analise_pratica.tex
-Overfull \hbox (45.17604pt too wide) in paragraph at lines 13--14
-[]\T1/ptm/b/n/12 (-20) Diodo (\T1/pcr/b/n/12 d\T1/ptm/b/n/12 (-20) ): \T1/ptm/m
-/n/12 (-20) Inseriu-se a di-re-triz \T1/pcr/m/n/12 .model di d(Ron=1m Roff=10Me
-g Vfwd=0 Vrev=1k)\T1/ptm/m/n/12 (-20) .
+Overfull \hbox (13.20738pt too wide) in paragraph at lines 12--14
+\T1/ptm/m/n/12 (-20) Inseriu-se a di-re-triz \T1/pcr/m/n/12 .model swi sw(Ron=1
+m Roff=10Meg Vt=0.98 Vh=0.01)\T1/ptm/m/n/12 (-20) .
  []
 
 [11
@@ -1443,221 +1438,221 @@ g Vfwd=0 Vrev=1k)\T1/ptm/m/n/12 (-20) .
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 28.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00043pt
-(hyperref)                removed on input line 28.
+(hyperref)                removed on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 28.
+(hyperref)                removing `\Omega' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 31.
 
-<FIGURAS/circuito_cenario_1.png, id=177, 1929.2075pt x 899.36pt>
+<FIGURAS/circuito_cenario_1.png, id=179, 1929.2075pt x 899.36pt>
 File: FIGURAS/circuito_cenario_1.png Graphic file (type png)
 <use FIGURAS/circuito_cenario_1.png>
-Package pdftex.def Info: FIGURAS/circuito_cenario_1.png  used on input line 34.
+Package pdftex.def Info: FIGURAS/circuito_cenario_1.png  used on input line 37.
 
 (pdftex.def)             Requested size: 273.00278pt x 127.26813pt.
-<FIGURAS/transitorio_1.png, id=180, 1922.18124pt x 443.6575pt>
+<FIGURAS/transitorio_1.png, id=182, 1922.18124pt x 443.6575pt>
 File: FIGURAS/transitorio_1.png Graphic file (type png)
 <use FIGURAS/transitorio_1.png>
-Package pdftex.def Info: FIGURAS/transitorio_1.png  used on input line 45.
+Package pdftex.def Info: FIGURAS/transitorio_1.png  used on input line 48.
 (pdftex.def)             Requested size: 204.74861pt x 47.25221pt.
-<FIGURAS/permanente_1.png, id=181, 1920.17375pt x 443.6575pt>
+<FIGURAS/permanente_1.png, id=183, 1920.17375pt x 443.6575pt>
 File: FIGURAS/permanente_1.png Graphic file (type png)
 <use FIGURAS/permanente_1.png>
-Package pdftex.def Info: FIGURAS/permanente_1.png  used on input line 51.
+Package pdftex.def Info: FIGURAS/permanente_1.png  used on input line 54.
 (pdftex.def)             Requested size: 204.74861pt x 47.30637pt.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 57.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00043pt
-(hyperref)                removed on input line 57.
+(hyperref)                removed on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 57.
+(hyperref)                removing `\Omega' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 57.
+(hyperref)                removing `math shift' on input line 60.
 
 [12 <./FIGURAS/circuito_cenario_1.png> <./FIGURAS/transitorio_1.png> <./FIGURAS
 /permanente_1.png>]
-<FIGURAS/circuito_cenario_2.png, id=192, 1927.2pt x 928.46875pt>
+<FIGURAS/circuito_cenario_2.png, id=194, 1927.2pt x 928.46875pt>
 File: FIGURAS/circuito_cenario_2.png Graphic file (type png)
 <use FIGURAS/circuito_cenario_2.png>
-Package pdftex.def Info: FIGURAS/circuito_cenario_2.png  used on input line 63.
+Package pdftex.def Info: FIGURAS/circuito_cenario_2.png  used on input line 66.
 
 (pdftex.def)             Requested size: 273.00278pt x 131.5148pt.
-<FIGURAS/transitorio_2.png, id=193, 1922.18124pt x 443.6575pt>
+<FIGURAS/transitorio_2.png, id=195, 1922.18124pt x 443.6575pt>
 File: FIGURAS/transitorio_2.png Graphic file (type png)
 <use FIGURAS/transitorio_2.png>
-Package pdftex.def Info: FIGURAS/transitorio_2.png  used on input line 74.
+Package pdftex.def Info: FIGURAS/transitorio_2.png  used on input line 77.
 (pdftex.def)             Requested size: 204.74861pt x 47.25221pt.
-<FIGURAS/permanente_2.png, id=194, 1922.18124pt x 443.6575pt>
+<FIGURAS/permanente_2.png, id=196, 1922.18124pt x 443.6575pt>
 File: FIGURAS/permanente_2.png Graphic file (type png)
 <use FIGURAS/permanente_2.png>
-Package pdftex.def Info: FIGURAS/permanente_2.png  used on input line 80.
+Package pdftex.def Info: FIGURAS/permanente_2.png  used on input line 83.
 (pdftex.def)             Requested size: 204.74861pt x 47.25221pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 86.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00043pt
-(hyperref)                removed on input line 86.
+(hyperref)                removed on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 86.
+(hyperref)                removing `\Omega' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 86.
+(hyperref)                removing `math shift' on input line 89.
 
-<FIGURAS/circuito_cenario_3.png, id=195, 1929.2075pt x 899.36pt>
+<FIGURAS/circuito_cenario_3.png, id=197, 1929.2075pt x 899.36pt>
 File: FIGURAS/circuito_cenario_3.png Graphic file (type png)
 <use FIGURAS/circuito_cenario_3.png>
-Package pdftex.def Info: FIGURAS/circuito_cenario_3.png  used on input line 92.
+Package pdftex.def Info: FIGURAS/circuito_cenario_3.png  used on input line 95.
 
 (pdftex.def)             Requested size: 273.00278pt x 127.26813pt.
 [13 <./FIGURAS/circuito_cenario_2.png> <./FIGURAS/transitorio_2.png> <./FIGURAS
 /permanente_2.png> <./FIGURAS/circuito_cenario_3.png>]
-<FIGURAS/transitorio_3.png, id=207, 1920.17375pt x 443.6575pt>
+<FIGURAS/transitorio_3.png, id=209, 1920.17375pt x 443.6575pt>
 File: FIGURAS/transitorio_3.png Graphic file (type png)
 <use FIGURAS/transitorio_3.png>
-Package pdftex.def Info: FIGURAS/transitorio_3.png  used on input line 103.
+Package pdftex.def Info: FIGURAS/transitorio_3.png  used on input line 106.
 (pdftex.def)             Requested size: 204.74861pt x 47.30637pt.
-<FIGURAS/permanente_3.png, id=208, 1920.17375pt x 443.6575pt>
+<FIGURAS/permanente_3.png, id=210, 1920.17375pt x 443.6575pt>
 File: FIGURAS/permanente_3.png Graphic file (type png)
 <use FIGURAS/permanente_3.png>
-Package pdftex.def Info: FIGURAS/permanente_3.png  used on input line 109.
+Package pdftex.def Info: FIGURAS/permanente_3.png  used on input line 112.
 (pdftex.def)             Requested size: 204.74861pt x 47.30637pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 115.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00043pt
-(hyperref)                removed on input line 115.
+(hyperref)                removed on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 115.
+(hyperref)                removing `\Omega' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 115.
+(hyperref)                removing `math shift' on input line 118.
 
-<FIGURAS/circuito_cenario_4.png, id=209, 1927.2pt x 928.46875pt>
+<FIGURAS/circuito_cenario_4.png, id=211, 1927.2pt x 928.46875pt>
 File: FIGURAS/circuito_cenario_4.png Graphic file (type png)
 <use FIGURAS/circuito_cenario_4.png>
-Package pdftex.def Info: FIGURAS/circuito_cenario_4.png  used on input line 121
+Package pdftex.def Info: FIGURAS/circuito_cenario_4.png  used on input line 124
 .
 (pdftex.def)             Requested size: 273.00278pt x 131.5148pt.
-<FIGURAS/transitorio_4.png, id=210, 1922.18124pt x 443.6575pt>
+<FIGURAS/transitorio_4.png, id=212, 1922.18124pt x 443.6575pt>
 File: FIGURAS/transitorio_4.png Graphic file (type png)
 <use FIGURAS/transitorio_4.png>
-Package pdftex.def Info: FIGURAS/transitorio_4.png  used on input line 132.
+Package pdftex.def Info: FIGURAS/transitorio_4.png  used on input line 135.
 (pdftex.def)             Requested size: 204.74861pt x 47.25221pt.
-<FIGURAS/permanente_4.png, id=211, 1922.18124pt x 443.6575pt>
+<FIGURAS/permanente_4.png, id=213, 1922.18124pt x 443.6575pt>
 File: FIGURAS/permanente_4.png Graphic file (type png)
 <use FIGURAS/permanente_4.png>
-Package pdftex.def Info: FIGURAS/permanente_4.png  used on input line 138.
+Package pdftex.def Info: FIGURAS/permanente_4.png  used on input line 141.
 (pdftex.def)             Requested size: 204.74861pt x 47.25221pt.
 ) [14 <./FIGURAS/transitorio_3.png> <./FIGURAS/permanente_3.png> <./FIGURAS/cir
 cuito_cenario_4.png> <./FIGURAS/transitorio_4.png> <./FIGURAS/permanente_4.png>
@@ -1704,19 +1699,15 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: 70B62DB59EA4E98B5F44C606DBC14A54;335.
  ) 
 Here is how much of TeX's memory you used:
- 26445 strings out of 474222
- 442602 string characters out of 5748733
+ 26443 strings out of 474222
+ 442572 string characters out of 5748733
  1938975 words of memory out of 5000000
- 47922 multiletter control sequences out of 15000+600000
- 597230 words of font info for 204 fonts, out of 8000000 for 9000
+ 47921 multiletter control sequences out of 15000+600000
+ 597167 words of font info for 203 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,13n,107p,1001b,663s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
@@ -1733,10 +1724,10 @@ hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on main.pdf (18 pages, 1918033 bytes).
+Output written on main.pdf (18 pages, 1917826 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
+ 426 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
  82 named destinations out of 1000 (max. 500000)
  37678 words of extra memory for PDF output out of 42996 (max. 10000000)
 

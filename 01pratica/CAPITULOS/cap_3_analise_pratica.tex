@@ -9,8 +9,11 @@ Para assegurar uma correlação fidedigna entre o modelo matemático teórico e 
 \subsection{Diretrizes SPICE e Modelagem de Semicondutores}
 O roteiro laboratorial impõe o uso de modelos quase ideais para a chave e para o diodo de roda livre. Tais configurações foram aplicadas diretamente no esquemático através de comandos nativos do LTSpice (\textit{SPICE Directives}):
 \begin{itemize}
-	\item \textbf{Chave Controlada por Tensão (\texttt{sw}):} Inseriu-se a diretriz \texttt{.model sw\_i sw(Ron=1m Roff=10Meg Vt=0.98 Vh=0.01)}. Este comando define uma chave com resistência de condução quase nula ($1\text{ m}\Omega$), isolamento altíssimo na abertura ($10\text{ M}\Omega$) e um limiar de acionamento em $0,98\text{ V}$.
-	\item \textbf{Diodo (\texttt{d}):} Inseriu-se a diretriz \texttt{.model di d(Ron=1m Roff=10Meg Vfwd=0 Vrev=1k)}. Com isso, elimina-se a queda de tensão de condução direta ($V_{fwd} = 0\text{ V}$), aproximando o componente do modelo teórico por partes utilizado na modelagem matemática.
+	\item \textbf{Chave Controlada por Tensão (\texttt{sw}):}\\
+	 Inseriu-se a diretriz \texttt{.model swi sw(Ron=1m Roff=10Meg Vt=0.98 Vh=0.01)}. Este comando define uma chave com resistência de condução quase nula ($1\text{ m}\Omega$), isolamento altíssimo na abertura ($10\text{ M}\Omega$) e um limiar de acionamento em $0,98\text{ V}$.
+	\item \textbf{Diodo (\texttt{d}):}\\
+	 Inseriu-se a diretriz \texttt{.model di d(Ron=1m Roff=10Meg Vfwd=0 Vrev=1k)}.\\
+	 Com isso, elimina-se a queda de tensão de condução direta ($V_{fwd} = 0\text{ V}$), aproximando o componente do modelo teórico por partes utilizado na modelagem matemática.
 \end{itemize}
 Os componentes visuais no esquemático foram devidamente vinculados a estas diretrizes renomeando seus valores originais para \texttt{sw\_i} e \texttt{di}, respectivamente.
 
