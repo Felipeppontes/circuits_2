@@ -1,3 +1,8 @@
-\backcite {nilsson}{{3}{1}{chapter.1}}
 \backcite {maxima}{{3}{1}{chapter.1}}
-\backcite {maxima}{{4}{2}{chapter.2}}
+\backcite {ltspice}{{3}{1}{chapter.1}}
+\backcite {maxima}{{4}{1.1}{section.1.1}}
+\backcite {ltspice}{{4}{1.1}{section.1.1}}
+\backcite {maxima}{{7}{2.3.1}{equation.2.3.2}}
+\backcite {maxima}{{7}{2.3.2}{equation.2.3.6}}
+\backcite {ltspice}{{11}{3}{chapter.3}}
+\backcite {maxima}{{16}{5}{chapter.5}}

@@ -3,28 +3,35 @@
 \babel@toc {brazil}{}\relax 
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{3}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Objetivos}{3}{section.1.1}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Análise Teórica}}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}O \textit {Buffer} de Corrente}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Exemplo Numérico}{4}{section.2.2}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Descrição da Prática e Análise Teórica}}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Modelagem Matemática do Diodo}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}O Conversor \textit {Buck} Simplificado}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Análise no Domínio de Laplace}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Estado 1: Operação com a Chave Fechada ($0 \le t < kT$)}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Estado 2: Operação com a Chave Aberta ($kT \le t < T$)}{7}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Dinâmica Periódica e Regime Permanente}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Avaliação das Tensões de Comutação ($V_1$ e $V_2$)}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Análise em Regime Permanente}{9}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Aproximação Linear para Alta Frequência ($T \to 0$)}{9}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Dimensionamento Numérico do Indutor ($L$)}{10}{section.2.7}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Medições em Laboratório}}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Procedimento Experimental}{6}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Preparação dos Circuitos}{6}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Medição dos Valores Reais dos Componentes}{6}{subsection.3.1.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Simulações Computacionais}}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Metodologia e Configuração do Ambiente de Simulação (LTSpice)}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Diretrizes SPICE e Modelagem de Semicondutores}{11}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Configuração do Sinal de Controle (Chaveamento)}{11}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Parâmetros de Análise Transiente}{12}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Cenário 1: $R = 5\,\Omega $, $f = 10\text { kHz}$ e $L = 125\text { mH}$}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Cenário 2: $R = 5\,\Omega $, $f = 50\text { kHz}$ e $L = 25\text { mH}$}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Cenário 3: $R = 1\,\Omega $, $f = 10\text { kHz}$ e $L = 25\text { mH}$}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Cenário 4: $R = 1\,\Omega $, $f = 50\text { kHz}$ e $L = 5\text { mH}$}{14}{section.3.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Análise Pós-Laboratorial}}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Estimativa pelo Método dos Mínimos Erros Quadráticos}{7}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Comparação dos Resultados}{7}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Análise dos Erros}{7}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Gráficos de Ajuste}{7}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Comparação Visual}{7}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Análise de Fontes de Erro}{7}{section.4.3}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Análise Pós-Laboratorial}}{15}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusão}}{9}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{16}{chapter.5}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase {REFER\^ENCIAS}}{10}{section*.9}%
+\contentsline {chapter}{\MakeTextUppercase []{REFER\^ENCIAS}}{17}{section*.19}%
 \vspace {\cftbeforechapterskip }

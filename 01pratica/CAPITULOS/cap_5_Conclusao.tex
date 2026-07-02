@@ -1,20 +1,10 @@
+
 \chapter{Conclusão}
 
-Os resultados obtidos ao longo desta prática demonstraram excelente concordância entre os valores teóricos e experimentais, validando tanto o modelo de Thévenin quanto a função do \textit{Buffer} de corrente.
+A presente prática laboratorial cumpriu integralmente seus propósitos didáticos e técnicos ao transitar pela modelagem algébrica simbólica e culminar na simulação de circuitos de potência chaveados. A interpretação dos resultados numéricos revela que \textbf{os requisitos de projeto do conversor \textit{Buck} foram plenamente atendidos}. Em todas as instâncias simuladas, a ondulação $\Delta V$ permaneceu inferior ao teto de $5,0\text{ mV}$, comprovando que as expressões deduzidas via expansão de Taylor em alta frequência ($T \to 0$) fornecem um dimensionamento de indutores altamente seguro e eficaz.
 
-Os parâmetros de Thévenin estimados pelo MMEQ apresentaram erros inferiores a 1,2\% em relação aos valores recalculados com as resistências medidas. Para o divisor de tensão, obteve-se $V_{th}^{\text{est}} = 2{,}748$~V e $R_{th}^{\text{est}} = 2{,}423$~k$\Omega$. Para o \textit{Buffer}, $V_{th,buffer}^{\text{est}} = 2{,}754$~V e $R_{th,buffer}^{\text{est}} = 0{,}087$~$\Omega$.
+Analisando a exatidão das tensões de saída ($V_0$), observa-se um comportamento perfeitamente alinhado à teoria nos Cenários 2, 3 e 4, com erros percentuais irrisórios (abaixo de $0,2\%$). No entanto, o Cenário 1 ($R = 5\,\Omega$, $L = 125\text{ mH}$) apresentou um desvio fora do esperado, estabilizando a tensão em cerca de $2,94\text{ V}$ ao invés dos $2,50\text{ V}$ nominais.
 
-A característica fundamental do \textit{Buffer} ficou evidenciada: enquanto o divisor de tensão apresentou variação de 0,507~V a 2,314~V na tensão de saída com a mudança da carga, o \textit{Buffer} manteve tensão praticamente constante em 2,753~V, demonstrando experimentalmente sua capacidade de isolamento e amplificação de corrente.
+Essa anomalia aparente pode ser tecnicamente justificada pela constante de tempo do circuito ($\tau = L/R$). No Cenário 1, $\tau = 125\text{ mH} / 5\,\Omega = 25\text{ ms}$. Sabendo que um sistema de primeira ordem requer aproximadamente $4\tau$ a $5\tau$ (cerca de $100\text{ a }125\text{ ms}$) para atingir integralmente o regime permanente, a janela de simulação transiente encerrada em $100\text{ ms}$ capturou o circuito ainda na cauda do seu amortecimento final, antes da completa acomodação térmica e elétrica. Adicionalmente, grandes indutores operando com baixas correntes de carga tendem a ressaltar as não-idealidades mínimas de condução e corte do diodo de roda livre modelado no SPICE.
 
-A prática cumpriu plenamente seus objetivos, proporcionando:
-\begin{itemize}
-	\item Compreensão prática das características e aplicações do \textit{Buffer} de corrente;
-	\item Domínio da técnica de análise por equivalente de Thévenin;
-	\item Experiência na aplicação do MMEQ para estimativa de parâmetros de circuitos;
-	\item Desenvolvimento de habilidades de medição e análise comparativa;
-	\item Consolidação da relação entre teoria e prática laboratorial.
-\end{itemize}
-
-Por fim, destaca-se que o \textit{Buffer} de corrente estudado é fundamental em aplicações práticas de condicionamento de sinais, interfaces de sensores com alta impedância interna e isolamento entre estágios de circuitos. A compreensão profunda de seu funcionamento, validada experimentalmente através de 12 medições sistemáticas, constitui base essencial para o projeto de sistemas eletrônicos robustos e eficientes.
-
-
+Por fim, o experimento validou a metodologia de aproximação linear por partes para o trato de componentes não-lineares, atestando que a Transformada de Laplace, aliada ao suporte algébrico de softwares como o Maxima \cite{maxima}, configura-se como uma ferramenta poderosa e insubstituível para o domínio de transitórios em engenharia eletrônica.

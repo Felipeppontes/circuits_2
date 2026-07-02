@@ -1,26 +1,13 @@
 LTspice 26.0.1 for Windows
 Circuit: C:\users\pontes\Documents\circuits_2\01pratica\01_simulação_felipe.net
-Start Time: Tue Jun  2 11:30:17 2026
-
-.step rval=1
+Start Time: Fri Jun  5 12:40:09 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
 temp = 27
 method = trap
-C:\users\pontes\Documents\circuits_2\01pratica\01_simulação_felipe.net(8): Limiting rise time to 5e-06.
-
-V2 N004 0 PULSE(0 1 0 0 0 0.05e-3 0.1e-3)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\users\pontes\Documents\circuits_2\01pratica\01_simulação_felipe.net(8): Limiting fall time to 5e-06.
-
-V2 N004 0 PULSE(0 1 0 0 0 0.05e-3 0.1e-3)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Direct Newton iteration succeeded in finding operating point.
-
-.step rval=1000
-Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 2.125 seconds.
+Total elapsed time: 2.349 seconds.
 
 Files loaded:
 C:\users\pontes\Documents\circuits_2\01pratica\01_simulação_felipe.net

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>04_lab_circ</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  // A comment that hinders wxWidgets from optimizing this tag too much.
+</script>
+  <link rel="stylesheet" type="text/css" href="04_lab_circ_htmlimg/04_lab_circ.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 24.02.1       * -->
+<!-- ****************************************************** -->
+<noscript><div class="error message"><p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p></div></noscript><p hidden = "hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+
+<!-- Title cell -->
+
+
+<div class="title">
+<p>
+ROTEIRO 04 - CIRCUITOS 2
+</p>
+</div>
+
+
+<!-- Section cell -->
+
+
+<div class="section">
+<p>
+  1 ANÁLISE TEÓRICA
+</p>
+</div>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  1.1 CIRCUITO 01 
+</p>
+</div>
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  1.1.1 EQUAÇÃO QUE REGE O CIRCUITO
+</p>
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Equação que rege o circuito: </li>
+</ul>
+
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Função transferência: </li>
+</ul>
+
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Frequência de corte fc:<br> <br/>-&gt; como a minha função transferência não está na forma padrão então vamos manipula-la dividindo tudo por RC e teremos:</li>
+</ul>
+
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Ganho: <br> <br/>--&gt;  É EXATAMENTE A FUNÇÃO TRANSFERENCIA (RAZÃO DA SAIDA PELA ENTRADA )</li>
+</ul>
+
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/* =========================================================================</span><span class="code_comment"><br>
+</span><span class="code_comment">   EL216 - CIRCUITOS 2 | PRÁTICA 4 - PRIMEIRO CIRCUITO (Filtro RC sem carga)</span><span class="code_comment"><br>
+</span><span class="code_comment">   ========================================================================= */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 1. PREPARAÇÃO DO AMBIENTE */</span><span class="code_endofline"><br>
+</span><span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">$</span> <span class="code_comment">/* Limpa a memoria para evitar conflitos com variaveis antigas */</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">R</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">f</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">$</span> <span class="code_comment">/* Define que os componentes sao reais e positivos */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 2. CONVERSÃO PARA FREQUÊNCIA E EQUAÇÕES QUE O REGEM */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Definimos as impedancias no dominio de Laplace (s) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_R</span> <span class="code_operator">:</span> <span class="code_variable">R</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_C</span> <span class="code_operator">:</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* A tensao de saida eh tomada sobre o capacitor. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Equacao do Divisor de Tensao: Vo = Vi * (Z_C / (Z_R + Z_C)) */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 3. RESOLUÇÃO E FUNÇÃO DE TRANSFERÊNCIA H1(s) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H1_s</span> <span class="code_operator">:</span> <span class="code_variable">Z_C</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_variable">Z_R</span> <span class="code_operator">+</span> <span class="code_variable">Z_C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">H1_simp</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_variable">H1_s</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* Comando que simplifica e entrega a funcao de transferencia */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 4. FREQUÊNCIA DE CORTE E GANHO DO FILTRO (TEORIA) */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* O Ganho DC ocorre em frequencias nulas (s = 0) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Ganho_Teorico</span> <span class="code_operator">:</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">=</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">H1_simp</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* A frequencia de corte angular ocorre em w = 1/RC. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Como w = 2*pi*f, a frequencia de corte em Hertz eh: */</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_teorico</span> <span class="code_operator">:</span> <span class="code_number">1</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">R</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 5. (LAB) PROJETO DO FILTRO (fc = 50 Hz, C = 100 nF) */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Queremos descobrir R. Vamos resolver a equacao teorica para a variavel R */</span><span class="code_endofline"><br>
+</span><span class="code_variable">eq_projeto</span> <span class="code_operator">:</span> <span class="code_variable">fc_desejada</span> <span class="code_operator">=</span> <span class="code_number">1</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">R</span><span class="code_operator">·</span><span class="code_variable">C_lab</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">R_isolado</span> <span class="code_operator">:</span> <span class="code_function">solve</span><span class="code_operator">(</span><span class="code_variable">eq_projeto</span><span class="code_endofline">,</span> <span class="code_variable">R</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/*===========================================*/</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Criamos uma lista com os valores requeridos pelo roteiro. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Se quiser testar outros valores depois, mude APENAS NESTA LISTA: */</span><span class="code_endofline"><br>
+</span><span class="code_variable">valores_projeto</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_variable">fc_desejada</span> <span class="code_operator">=</span> <span class="code_number">50</span><span class="code_endofline">,</span> <span class="code_variable">C_lab</span> <span class="code_operator">=</span> <span class="code_number">100e-9</span><span class="code_operator">]</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/*===========================================*/</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Calculamos o valor exato do resistor usando os valores da lista e pedimos numero decimal (, numer) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">R_exato_num</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">R_isolado</span><span class="code_endofline">,</span> <span class="code_variable">valores_projeto</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 6. (LAB) ESCOLHA DO VALOR COMERCIAL E RECALCULO */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* O calculo acima resulta em aproximadamente 31831 Ohms (31.8 kOhms).</span><span class="code_comment"><br>
+</span><span class="code_comment">   O valor comercial mais proximo na gaveta do laboratorio (serie E24) costuma ser 33 kOhms.</span><span class="code_comment"><br>
+</span><span class="code_comment">   Pode alterar a variavel abaixo caso tenha um de 30k ou use potenciometro. */</span><span class="code_endofline"><br>
+</span><span class="code_variable">R_comercial</span> <span class="code_operator">:</span> <span class="code_number">33e3</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Recalculamos a nova frequencia de corte real com o resistor comercial */</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_real</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">fc_teorico</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">R</span> <span class="code_operator">=</span> <span class="code_variable">R_comercial</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_operator">=</span> <span class="code_number">100e-9</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 7. (LAB) DIAGRAMA DE BODE DE MAGNITUDE */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Para Bode, primeiro trocamos 's' por 'j*w' (%i*w) na funcao simplificada */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H1_jw</span> <span class="code_operator">:</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span> <span class="code_operator">=</span> <span class="code_variable">%i</span><span class="code_operator">·</span><span class="code_variable">w</span><span class="code_endofline">,</span> <span class="code_variable">H1_simp</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Tiramos o modulo/magnitude e simplificamos as raizes */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Magnitude</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_function">cabs</span><span class="code_operator">(</span><span class="code_variable">H1_jw</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Convertemos o Ganho para decibeis (dB) e trocamos w por 2*pi*f para plotar no eixo de Hertz */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_dB</span> <span class="code_operator">:</span> <span class="code_number">20</span> <span class="code_operator">·</span> <span class="code_function">log</span><span class="code_operator">(</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_operator">=</span> <span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_variable">Magnitude</span><span class="code_operator">)</span> <span class="code_operator">)</span> <span class="code_operator">/</span> <span class="code_function">log</span><span class="code_operator">(</span><span class="code_number">10</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Substituimos os nossos componentes comerciais na expressao de plotagem */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_plot</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">Mag_dB</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">R</span> <span class="code_operator">=</span> <span class="code_variable">R_comercial</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_operator">=</span> <span class="code_number">100e-9</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Plota o Grafico de Bode (Magnitude) usando escala logaritmica no eixo X (frequencias de 1 a 1000 Hz) */</span><span class="code_endofline"><br>
+</span><span class="code_function">wxplot2d</span><span class="code_operator">(</span> <span class="code_variable">Mag_plot</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">1000</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">logx</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">xlabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Frequência (Hz)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">ylabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Magnitude (dB)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">title</span><span class="code_endofline">,</span> <span class="code_string">&quot;Diagrama de Bode - Filtro RC Passa-Baixa (Sem Carga)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">style</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">lines</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">blue</span><span class="code_operator">]</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">grid2d</span><span class="code_endofline">,</span> <span class="code_function">true</span><span class="code_operator">]</span> <span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[\tag{1\_ sim} \frac{1}{C R s\mathop{+}1}\]
+</p>
+<p>
+\[\]\[\tag{anho\_ Teoric} 1\]
+</p>
+<p>
+\[\]\[\tag{\_ exato\_ nu} \left[ R\mathop{=}31830.98861837907\right] \]
+</p>
+<p>
+\[\]\[\tag{c\_ rea} 48.22877063390768\]
+</p>
+<p>
+\[\]\[\tag{%t18} \]
+</p>
+  <img src="04_lab_circ_htmlimg/04_lab_circ_5.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br>
+
+<p>
+\[\]\[\tag{%o18} \]
+</p>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  1.2 CIRCUITO 02
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/* =========================================================================</span><span class="code_comment"><br>
+</span><span class="code_comment">   EL216 - CIRCUITOS 2 | PRÁTICA 4 - SEGUNDO CIRCUITO (Filtro RC com Carga)</span><span class="code_comment"><br>
+</span><span class="code_comment">   ========================================================================= */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 1. PREPARAÇÃO DO AMBIENTE */</span><span class="code_endofline"><br>
+</span><span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">R</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">RL</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">f</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">$</span> <span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 2. CONVERSÃO PARA FREQUÊNCIA E EQUAÇÕES QUE O REGEM */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Definimos as impedancias no dominio de Laplace (s) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_R</span>  <span class="code_operator">:</span> <span class="code_variable">R</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_C</span>  <span class="code_operator">:</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_RL</span> <span class="code_operator">:</span> <span class="code_variable">RL</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Como a carga esta em paralelo com o capacitor, calculamos a impedancia equivalente (Z_p) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_p</span> <span class="code_operator">:</span> <span class="code_operator">(</span><span class="code_variable">Z_RL</span> <span class="code_operator">·</span> <span class="code_variable">Z_C</span><span class="code_operator">)</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_variable">Z_RL</span> <span class="code_operator">+</span> <span class="code_variable">Z_C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* A tensao de saida eh sobre essa associacao paralela. Aplicamos o divisor de tensao: */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 3. RESOLUÇÃO E FUNÇÃO DE TRANSFERÊNCIA H2(s) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H2_s</span> <span class="code_operator">:</span> <span class="code_variable">Z_p</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_variable">Z_R</span> <span class="code_operator">+</span> <span class="code_variable">Z_p</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">H2_simp</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_variable">H2_s</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* Entrega a funcao: RL / (s*C*R*RL + R + RL) */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 4. FREQUÊNCIA DE CORTE E GANHO DO FILTRO (TEORIA) */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Ganho DC ocorre em frequencias nulas (s = 0) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Ganho_Teorico</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">=</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">H2_simp</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* A resistencia equivalente vista pelo capacitor eh o paralelo entre R e RL: Req = (R*RL)/(R+RL).</span><span class="code_comment"><br>
+</span><span class="code_comment">   A frequencia de corte teorica eh fc = 1 / (2*pi*Req*C). </span><span class="code_comment"><br>
+</span><span class="code_comment">   Colocando no formato matematico deduzido anteriormente: */</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_teorico</span> <span class="code_operator">:</span> <span class="code_operator">(</span><span class="code_variable">R</span> <span class="code_operator">+</span> <span class="code_variable">RL</span><span class="code_operator">)</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">R</span><span class="code_operator">·</span><span class="code_variable">RL</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 5. (LAB) ANÁLISE COM OS VALORES REAIS */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Definimos a lista com os componentes do lab. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Lembre-se de colocar o valor comercial de R que voce escolheu no Circuito 1! */</span><span class="code_endofline"><br>
+</span><span class="code_variable">valores_lab2</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_variable">R</span> <span class="code_operator">=</span> <span class="code_number">32</span><span class="code_endofline">.</span><span class="code_number">314e3</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_operator">=</span> <span class="code_number">100e-9</span><span class="code_endofline">,</span> <span class="code_variable">RL</span> <span class="code_operator">=</span> <span class="code_number">22e3</span><span class="code_operator">]</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Avaliamos numericamente o Ganho do circuito 2 */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Ganho_num</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">Ganho_Teorico</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab2</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Avaliamos numericamente a nova Frequencia de Corte */</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_num</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">fc_teorico</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab2</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 6. (LAB) DIAGRAMA DE BODE DE MAGNITUDE */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Trocamos 's' por 'j*w' na funcao simplificada */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H2_jw</span> <span class="code_operator">:</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span> <span class="code_operator">=</span> <span class="code_variable">%i</span><span class="code_operator">·</span><span class="code_variable">w</span><span class="code_endofline">,</span> <span class="code_variable">H2_simp</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Tiramos o modulo/magnitude */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Magnitude</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_function">cabs</span><span class="code_operator">(</span><span class="code_variable">H2_jw</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Convertemos para dB e mudamos w para 2*pi*f */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_dB</span> <span class="code_operator">:</span> <span class="code_number">20</span> <span class="code_operator">·</span> <span class="code_function">log</span><span class="code_operator">(</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_operator">=</span> <span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_variable">Magnitude</span><span class="code_operator">)</span> <span class="code_operator">)</span> <span class="code_operator">/</span> <span class="code_function">log</span><span class="code_operator">(</span><span class="code_number">10</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Substituimos nossos componentes reais na equacao para conseguir plotar o grafico */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_plot</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">Mag_dB</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab2</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Plota o Grafico de Bode (Magnitude) em escala logaritmica.</span><span class="code_comment"><br>
+</span><span class="code_comment">   Note que o grafico agora começara em um valor negativo de dB (devido a atenuacao do divisor resistivo)</span><span class="code_comment"><br>
+</span><span class="code_comment">   e a frequencia de corte estara mais alta que a do circuito 1. */</span><span class="code_endofline"><br>
+</span><span class="code_function">wxplot2d</span><span class="code_operator">(</span> <span class="code_variable">Mag_plot</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">1000</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">logx</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">xlabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Frequência (Hz)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">ylabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Magnitude (dB)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">title</span><span class="code_endofline">,</span> <span class="code_string">&quot;Diagrama de Bode - Filtro RC Passa-Baixa (Com Carga RL=22k)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">style</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">lines</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">red</span><span class="code_operator">]</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">grid2d</span><span class="code_endofline">,</span> <span class="code_function">true</span><span class="code_operator">]</span> <span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[\tag{2\_ sim} \frac{\ensuremath{\mathrm{RL}}}{C R\, \ensuremath{\mathrm{RL}} s\mathop{+}\ensuremath{\mathrm{RL}}\mathop{+}R}\]
+</p>
+<p>
+\[\]\[\tag{anho\_ Teoric} \frac{\ensuremath{\mathrm{RL}}}{\ensuremath{\mathrm{RL}}\mathop{+}R}\]
+</p>
+<p>
+\[\]\[\tag{anho\_ nu} 0.4050521044297971\]
+</p>
+<p>
+\[\]\[\tag{c\_ nu} 121.5957842518751\]
+</p>
+<p>
+\[\]\[\tag{%t17} \]
+</p>
+  <img src="04_lab_circ_htmlimg/04_lab_circ_12.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br>
+
+<p>
+\[\]\[\tag{%o17} \]
+</p>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  1.3 CIRCUITO 03
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/* =========================================================================</span><span class="code_comment"><br>
+</span><span class="code_comment">   EL216 - CIRCUITOS 2 | PRÁTICA 4 - TERCEIRO CIRCUITO (Filtro + Buffer + RL)</span><span class="code_comment"><br>
+</span><span class="code_comment">   ========================================================================= */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 1. PREPARAÇÃO DO AMBIENTE */</span><span class="code_endofline"><br>
+</span><span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">R</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">RL</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">f</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">$</span> <span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 2. CONVERSÃO PARA FREQUÊNCIA E EQUAÇÕES DO CIRCUITO COM AMPOP */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Definimos as impedancias */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_R</span>  <span class="code_operator">:</span> <span class="code_variable">R</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">Z_C</span>  <span class="code_operator">:</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Pela teoria do Ampop Ideal, a entrada nao-inversora (V+) nao drena corrente.</span><span class="code_comment"><br>
+</span><span class="code_comment">   Logo, a tensao nela eh a mesma do divisor de tensao original do filtro RC: */</span><span class="code_endofline"><br>
+</span><span class="code_variable">V_mais</span> <span class="code_operator">:</span> <span class="code_variable">Z_C</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_variable">Z_R</span> <span class="code_operator">+</span> <span class="code_variable">Z_C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Na configuracao de buffer (seguidor de tensao), a saida (V_o) eh realimentada </span><span class="code_comment"><br>
+</span><span class="code_comment">   direto na entrada inversora (V-), e o ampop forca V- = V+. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Portanto, a tensao de saida eh exatamente igual a tensao V+: */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 3. RESOLUÇÃO E FUNÇÃO DE TRANSFERÊNCIA H3(s) = V_o / V_i */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H3_s</span> <span class="code_operator">:</span> <span class="code_variable">V_mais</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_variable">H3_simp</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_variable">H3_s</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* Entrega a funcao: 1 / (s*C*R + 1) */</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 4. FREQUÊNCIA DE CORTE E GANHO DO CIRCUITO (TEORIA E COMPARAÇÃO) */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Ganho DC ocorre em frequencias nulas (s = 0) */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Ganho_Teorico</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">=</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">H3_simp</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* A frequencia de corte volta a depender apenas do filtro isolado */</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_teorico</span> <span class="code_operator">:</span> <span class="code_number">1</span> <span class="code_operator">/</span> <span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">R</span><span class="code_operator">·</span><span class="code_variable">C</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 5. (LAB) ANÁLISE COM OS VALORES REAIS */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Definimos a lista com os mesmos componentes do lab. </span><span class="code_comment"><br>
+</span><span class="code_comment">   Repare que RL = 22k esta na lista, mas a matematica mostrara que ele nao afeta o filtro! */</span><span class="code_endofline"><br>
+</span><span class="code_variable">valores_lab3</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_variable">R</span> <span class="code_operator">=</span> <span class="code_number">33e3</span><span class="code_endofline">,</span> <span class="code_variable">C</span> <span class="code_operator">=</span> <span class="code_number">100e-9</span><span class="code_endofline">,</span> <span class="code_variable">RL</span> <span class="code_operator">=</span> <span class="code_number">22e3</span><span class="code_operator">]</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Avaliamos numericamente. O ganho voltara a ser 1 e fc voltara a ser ~48.2 Hz */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Ganho_num</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">Ganho_Teorico</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab3</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">fc_num</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">fc_teorico</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab3</span><span class="code_endofline">,</span> <span class="code_variable">numer</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* 6. (LAB) DIAGRAMA DE BODE DE MAGNITUDE */</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Trocamos 's' por 'j*w' na funcao simplificada */</span><span class="code_endofline"><br>
+</span><span class="code_variable">H3_jw</span> <span class="code_operator">:</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">s</span> <span class="code_operator">=</span> <span class="code_variable">%i</span><span class="code_operator">·</span><span class="code_variable">w</span><span class="code_endofline">,</span> <span class="code_variable">H3_simp</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Tiramos o modulo/magnitude */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Magnitude</span> <span class="code_operator">:</span> <span class="code_function">ratsimp</span><span class="code_operator">(</span><span class="code_function">cabs</span><span class="code_operator">(</span><span class="code_variable">H3_jw</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Convertemos para dB e mudamos w para 2*pi*f */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_dB</span> <span class="code_operator">:</span> <span class="code_number">20</span> <span class="code_operator">·</span> <span class="code_function">log</span><span class="code_operator">(</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">w</span> <span class="code_operator">=</span> <span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">·</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_variable">Magnitude</span><span class="code_operator">)</span> <span class="code_operator">)</span> <span class="code_operator">/</span> <span class="code_function">log</span><span class="code_operator">(</span><span class="code_number">10</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Substituimos nossos componentes reais na equacao para plotar */</span><span class="code_endofline"><br>
+</span><span class="code_variable">Mag_plot</span> <span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">Mag_dB</span><span class="code_endofline">,</span> <span class="code_variable">valores_lab3</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br>
+</span><span class="code_endofline"><br>
+</span><span class="code_comment">/* Plota o Grafico de Bode (Magnitude).</span><span class="code_comment"><br>
+</span><span class="code_comment">   O grafico sera IDENTICO ao do Circuito 1, comprovando visualmente </span><span class="code_comment"><br>
+</span><span class="code_comment">   que o buffer eliminou o problema de carregamento que tivemos no Circuito 2! */</span><span class="code_endofline"><br>
+</span><span class="code_function">wxplot2d</span><span class="code_operator">(</span> <span class="code_variable">Mag_plot</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">1000</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">logx</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">xlabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Frequência (Hz)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">ylabel</span><span class="code_endofline">,</span> <span class="code_string">&quot;Magnitude (dB)&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">title</span><span class="code_endofline">,</span> <span class="code_string">&quot;Diagrama de Bode - Filtro com Buffer e Carga RL=22k&quot;</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br>
+</span>          <span class="code_operator">[</span><span class="code_variable">style</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">lines</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">green</span><span class="code_operator">]</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">grid2d</span><span class="code_endofline">,</span> <span class="code_function">true</span><span class="code_operator">]</span> <span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[\tag{%o6} \frac{1}{C R s+1}\]
+</p>
+<p>
+\[\]\[\tag{%o7} 1\]
+</p>
+<p>
+\[\]\[\tag{%o10} 1\]
+</p>
+<p>
+\[\]\[\tag{%o11} 48.22877063390768\]
+</p>
+<p>
+\[\]\[\tag{%t16} \]
+</p>
+  <img src="04_lab_circ_htmlimg/04_lab_circ_19.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br>
+
+<p>
+\[\]\[\tag{%o16} \]
+</p>
+
+
+<!-- Section cell -->
+
+
+<div class="section">
+<p>
+  2 MEDIÇÕES LABORATÓRIO - [ 26/05/26]
+</p>
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Componentes: <br> <br/><br></li>
+<li>CIRCUITO 1:<br> <br/>- R:  21,841 kΩ<br><br/>-C: 103,8 nF<br><br/><br></li>
+<li>CIRCUITO 2:<br> <br/>- R:  22,021 kΩ<br><br/>- Rl: 32.314 kΩ<br><br/>-C: 110,9 nF<br><br/><br></li>
+<li>CIRCUITO 3:<br> <br/>- R:  21,757 kΩ<br><br/>- Rl: 32.657 kΩ<br><br/>-C: 106,28 nF</li>
+</ul>
+
+</div>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  2.1 Dados - Circuito 1:
+</p>
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Frequencia de corte real: 67Hz --&gt; Pois é a frequencia em que a razão de saida sobre entrada é igual a 0,707<br> <br/><br><br/>EM 1Hz:  Vi=  483,2mV ;  V0=  469,1mV ;<br><br/><br><br/><br><br/>FATORES MULTIPLICATIVOS DA frequencia de corte:<br><br/>( entrada: Vi  Saida: V0)<br><br/><br></li>
+<li>0.02:  Vi=  612mV ;  V0=  624mV;   <br> </li>
+<li>0.2 :    Vi= 3.812 V ;  V0= 3.631V ;<br> </li>
+<li>0.5 :   Vi=  4.74V ;  V0= 3.977V ;<br> </li>
+<li>0.75 :   Vi=  4.857V ;  V0= 3.756V ;<br> </li>
+<li>1 :   Vi=  4.852V ;  V0= 3.510 ;<br> </li>
+<li>1.25 :    Vi=  4.987V ;  V0= 3.158V ; <br> </li>
+<li>1.6 :   Vi=  5.0V ;  V0= 2.701V ;<br> </li>
+<li>2.5:   Vi=  5V ;  V0= 1.967V ;<br> </li>
+<li>3.5 :   Vi=  5V ;  V0= 1.533V  ;<br> </li>
+<li>5:   Vi=  5.035V ;  V0= 1.111V ;<br> </li>
+<li>10:   Vi=  5.038V ;  V0=  568mV ;<br> </li>
+<li>20:   Vi=  5.035V ;  V0= 305mV  ; </li>
+</ul>
+
+</div>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  2.2 Dados - Circuito 2:
+</p>
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Frequencia de corte real:  121Hz --&gt; Pois é a frequencia em que a razão de saida sobre entrada é igual a 0,707<br> <br/><br><br/><br><br/>FATORES MULTIPLICATIVOS DA frequencia de corte:<br><br/><br><br/>( entrada: Vi  Saida: V0)<br><br/><br></li>
+<li>0.02:  Vi=  1.14 V ;  V0= 460mV  ;    <br> </li>
+<li>0.2 :    Vi=  4,66V ;  V0= 1,85V ;<br> </li>
+<li>0.5 :   Vi=  5,03V ;  V0= 1,85 V ;<br> </li>
+<li>0.75 :   Vi=  5,07V ;  V0= 1,69V ;<br> </li>
+<li>1 :   Vi=  5,1V ;  V0= 1,47V  ;<br> </li>
+<li>1.25 :    Vi=  5,11V ;  V0= 1,37V ; <br> </li>
+<li>1.6 :   Vi=  5,11V ;  V0= 1,21V ;<br> </li>
+<li>2.5:   Vi=  5,11V V ;  V0= 880mV  ;<br> </li>
+<li>3.5 :   Vi=  5,11 V ;  V0= 680mV  ;<br> </li>
+<li>5:   Vi=  5,11V ;  V0= 450mV ;<br> </li>
+<li>10:   Vi=  5,11VV;  V0=  260mV ;<br> </li>
+<li>20:   Vi=  5,11V ;  V0= 160mV  ; </li>
+</ul>
+
+</div>
+
+
+<!-- Subsection cell -->
+
+
+<div class="subsect">
+<p>
+  2.3 Dados - Circuito 3:
+</p>
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+<ul>
+<li>Frequencia de corte real: 69Hz --&gt; Pois é a frequencia em que a razão de saida sobre entrada é igual a 0,707<br> <br/><br></li>
+<li>EM 1Hz:  Vi=  500mV ;  V0=  480mV ;<br> <br/><br><br/>FATORES MULTIPLICATIVOS DA frequencia de corte:<br><br/>( entrada: Vi  Saida: V0)<br><br/><br></li>
+<li>0.02:  Vi=  760mV ;  V0=  760mV ;   <br> </li>
+<li>0.2 :    Vi=   3,98V ;  V0= 3,82V  ;<br> </li>
+<li>0.5 :   Vi=  4,82V ;  V0= 4,30V  ;<br> </li>
+<li>0.75 :   Vi=  4,98V ;  V0= 3,94V  ;<br> </li>
+<li>1 :   Vi=  5,03  V ;  V0= 3,54V ;<br> </li>
+<li>1.25 :    Vi= 5,07 V ;  V0= 3,18V  ; <br> </li>
+<li>1.6 :   Vi=   5,11V ;  V0= 2,77V  ;<br> </li>
+<li>2.5:   Vi= 5,11V ;  V0=  2,01V;<br> </li>
+<li>3.5 :   Vi=  5,11V ;  V0= 1,53V ;<br> </li>
+<li>5:   Vi=  5,11V ;  V0= 1,13V  ;<br> </li>
+<li>10:   Vi=  5,11V ;  V0=  640mV;<br> </li>
+<li>20:   Vi= 5,11 V ;  V0=  360mV; </li>
+</ul>
+
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="04_lab_circ_htmlimg/04_lab_circ.wxmx">here</a>.</small>
+ </body>
+</html>
