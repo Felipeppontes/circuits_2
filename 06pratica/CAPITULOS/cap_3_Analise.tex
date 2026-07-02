@@ -1,0 +1,141 @@
+\chapter{Medições em Laboratório}
+
+Na segunda parte da prática, foram montados dois circuitos em \textit{protoboard} : (1) divisor de tensão isolado e (2) divisor de tensão seguido de \textit{buffer} de corrente. As medições foram realizadas para caracterizar os equivalentes de Thévenin de ambos os circuitos através de múltiplas condições de carga.
+
+\section{Procedimento Experimental}
+A etapa experimental foi estruturada para permitir a comparação direta entre o divisor de tensão simples e o circuito com \textit{buffer}. Inicialmente, realizou-se a conferência dos componentes e a montagem dos circuitos, seguidas pela coleta sistemática de dados de tensão e corrente para diferentes condições de carga, conforme detalhado nas etapas a seguir.
+\subsection{Preparação dos Circuitos}
+
+Os circuitos foram montados conforme os esquemas das Figuras \ref{fig:divisor_tensao} e \ref{fig:circuito_completo}, utilizando os seguintes componentes:
+\begin{itemize}
+    \item 1 amplificador operacional (modelo utilizado);
+    \item Resistores de valores nominais: $R_1 = 3{,}9$~k$\Omega$, $R_2 = 6{,}8$~k$\Omega$, $R_3 = 560$~$\Omega$;
+    \item 1 potenciômetro de 10~k$\Omega$ para ajuste da carga;
+    \item Fonte de tensão simétrica ajustada para $V_{CC} = +10$~V e $V_{EE} = -10$~V.
+\end{itemize}
+
+\subsection{Medição dos Valores Reais dos Componentes}
+
+Antes da montagem dos circuitos, os valores reais dos resistores foram medidos com um multímetro digital. Os valores estão apresentados na Tabela \ref{tab:componentes_medidos}.
+
+\begin{table}[H]
+    \centering
+    \ABNTEXfontereduzida
+    \caption{Valores medidos dos componentes utilizados nos circuitos.}
+    \label{tab:componentes_medidos}
+    \begin{tabular}{c|c|c|c}
+        \hline
+        \textbf{Componente} & \textbf{Valor Nominal} & \textbf{Valor Medido} & \textbf{Desvio (\%)} \\ \hline
+        $R_1$ & $3{,}9~\text{k}\Omega$ & $3{,}842~\text{k}\Omega$ & 1,49 \\ [3pt]
+        $R_2$ & $6{,}8~\text{k}\Omega$ & $6{,}772~\text{k}\Omega$ & 0,41 \\ [3pt]
+        $R_3$ & $560~\Omega$ & $544~\Omega$ & 2,86 \\ [3pt]
+        \hline
+    \end{tabular}
+    \legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+\section{Circuito 1: Divisor de Tensão}
+O primeiro circuito analisado consiste apenas no divisor de tensão resistivo. O objetivo desta etapa foi caracterizar o comportamento da tensão de saída deste circuito sob duas condições distintas: em vazio (para determinação da tensão de Thévenin) e sob carga variável (para evidenciar a influência da resistência interna).
+\subsection{Medição em Circuito Aberto}
+
+Primeiramente, mediu-se a tensão de saída do divisor sem nenhuma carga conectada (circuito aberto). Esta medição fornece diretamente a tensão de Thévenin. Os resultados estão na Tabela \ref{tab:divisor_aberto}.
+
+\begin{table}[H]
+    \centering
+    \ABNTEXfontereduzida
+    \caption{Medições iniciais do divisor de tensão sem carga.}
+    \label{tab:divisor_aberto}
+    \begin{tabular}{c|c}
+        \hline
+        \textbf{Parâmetro} & \textbf{Valor Medido (V)} \\ \hline
+        $V_{CC}$ & 9,998 \\ [3pt]
+        $V_{EE}$ & $-10{,}005$ \\ [3pt]
+        $V_o$ (em aberto) & 2,752 \\ [3pt]
+        \hline
+    \end{tabular}
+    \legend{Fonte: Elaborado pelo autores.}
+\end{table}
+
+\subsection{Medições com Carga Variável}
+
+Conectou-se na saída do divisor um potenciômetro de 10~k$\Omega$ em série com o resistor $R_3 = 544$~$\Omega$. O potenciômetro foi ajustado para diferentes posições, variando a resistência total de carga. Para cada posição, mediram-se as tensões $V_o$ (saída do divisor) e $V_{R3}$ (sobre o resistor $R_3$).
+
+A corrente de carga pode ser calculada por $I_L = V_{R3}/R_3$, permitindo determinar a resistência de carga equivalente por $R_L = V_o/I_L$.
+
+\begin{table}[H]
+    \centering
+    \ABNTEXfontereduzida
+    \caption{Medições do divisor de tensão com carga variável.}
+    \label{tab:divisor_carga}
+    \begin{tabular}{c|c|c|c|c}
+        \hline
+        \textbf{Posição} & \textbf{$V_o$ (V)} & \textbf{$V_{R3}$ (V)} & \textbf{$I_L$ (mA)} & \textbf{$R_L$ (k$\Omega$)} \\ \hline
+        Mínimo & 0,5071 & 0,5050 & 0,928 & 0,546 \\ [3pt]
+        1 & 0,6000 & 0,4851 & 0,892 & 0,673 \\ [3pt]
+        2 & 1,0006 & 0,3948 & 0,726 & 1,378 \\ [3pt]
+        3 & 1,3999 & 0,3045 & 0,560 & 2,500 \\ [3pt]
+        4 & 1,8011 & 0,2150 & 0,395 & 4,558 \\ [3pt]
+        5 & 2,2003 & 0,1251 & 0,230 & 9,566 \\ [3pt]
+        Máximo & 2,3143 & 0,0994 & 0,183 & 12,649 \\ [3pt]
+        \hline
+    \end{tabular}
+    \legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+Observa-se que à medida que a resistência de carga aumenta (potenciômetro ajustado para valores maiores), a tensão $V_o$ se aproxima da tensão de Thévenin medida em circuito aberto (2,752~V), enquanto a corrente de carga diminui.
+
+\section{Circuito 2: Divisor de Tensão + \textit{Buffer}}
+Nesta etapa, acoplou-se o amplificador operacional na configuração de seguidor de tensão (\textit{buffer}) entre a saída do divisor e a carga. O objetivo foi verificar experimentalmente a capacidade do \textit{buffer} de isolar a fonte de sinal da carga, mantendo a tensão de saída estável mesmo com a variação da resistência de carga.
+\subsection{Medições com Carga Variável}
+
+O \textit{buffer} de corrente foi inserido entre o divisor de tensão e a carga (potenciômetro + $R_3$). O mesmo procedimento de medição foi repetido, ajustando o potenciômetro para diferentes posições.
+
+\begin{table}[H]
+    \centering
+    \ABNTEXfontereduzida
+    \caption{Medições do circuito com \textit{Buffer} de corrente.}
+    \label{tab:buffer_carga}
+    \begin{tabular}{c|c|c|c|c}
+        \hline
+        \textbf{Posição} & \textbf{$V_o$ (V)} & \textbf{$V_{R3}$ (V)} & \textbf{$I_L$ (mA)} & \textbf{$R_L$ (k$\Omega$)} \\ \hline
+        1 & 2,7533 & 2,7650 & 5,083 & 0,542 \\ [3pt]
+        2 & 2,7533 & 1,4500 & 2,665 & 1,033 \\ [3pt]
+        3 & 2,7533 & 0,9400 & 1,728 & 1,594 \\ [3pt]
+        4 & 2,7533 & 0,6100 & 1,121 & 2,456 \\ [3pt]
+        5 (Máx) & 2,7533 & 0,1115 & 0,205 & 13,431 \\ [3pt]
+        \hline
+    \end{tabular}
+    \legend{Fonte: Elaborado pelos autores.}
+\end{table}
+
+\textbf{Observação crítica:} A tensão $V_o$ permaneceu praticamente constante em 2,753~V para todas as posições do potenciômetro, demonstrando experimentalmente a função do \textit{Buffer} em manter a tensão de saída independente da carga conectada. Este comportamento confirma que a resistência de Thévenin do circuito com \textit{buffer} é muito próxima de zero.
+
+\subsection{Registro Fotográfico}
+
+As Figuras \ref{fig:foto_divisor} e \ref{fig:foto_buffer} apresentam os circuitos montados na \textit{protoboard} durante a realização das medições.
+
+\begin{figure}[H]
+    \centering
+    \caption{Circuito divisor de tensão montado na \textit{protoboard}.}
+    \includegraphics[width=0.6\linewidth]{FIGURAS/foto_divisor.jpeg}
+    \label{fig:foto_divisor}
+    \legend{Fonte: Elaborado pelos autores.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Circuito divisor de tensão com \textit{buffer} de corrente montado na \textit{protoboard}.}
+    \includegraphics[width=0.6\linewidth]{FIGURAS/foto_buffer.jpeg}
+    \label{fig:foto_buffer}
+    \legend{Fonte: Elaborado pelos autores.}
+\end{figure}
+
+\section{Observações Experimentais}
+
+Durante as medições, observou-se:
+\begin{itemize}
+    \item No divisor de tensão isolado, a tensão de saída variou significativamente (0,507~V a 2,314~V) com a mudança da carga, evidenciando o efeito da resistência interna;
+    \item Com o \textit{Buffer}, a tensão de saída permaneceu estável em 2,753~V independentemente da carga, demonstrando o isolamento efetivo proporcionado pelo amplificador;
+    \item A tensão de saída do \textit{buffer} (2,753~V) é praticamente idêntica à tensão medida em circuito aberto do divisor (2,752~V), confirmando o ganho unitário;
+    \item Pequenas discrepâncias entre $V_o$ e $V_{R3}$ no circuito com \textit{buffer} são atribuídas à queda de tensão no potenciômetro.
+\end{itemize}
