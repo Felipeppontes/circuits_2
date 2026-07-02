@@ -1,14 +1,14 @@
 \chapter{Introdução}
 
-O estudo da resposta de circuitos lineares em regime permanente senoidal é fundamental para a compreensão do comportamento de sistemas no domínio da frequência \cite{nilsson}. 
+O presente relatório detalha o estudo e a caracterização de um amplificador de tensão transistorizado (TBJ npn) operando na configuração emissor comum. A topologia estudada emprega uma técnica de polarização por resistência de realimentação ($R_f$) entre o coletor e a base. Embora menos usual comercialmente, essa configuração foi escolhida para a bancada por garantir que todos os parâmetros $g$ do quadripolo equivalente sejam não-nulos, permitindo uma modelagem matemática mais completa.
 
-Nesta prática de laboratório, realizou-se a análise teórica e experimental da influência da função de transferência na resposta de um filtro ativo de realimentação múltipla (MFB) implementado com amplificador operacional. O trabalho foi estruturado em etapas complementares: a análise analítica utilizando o software Maxima \cite{maxima}, a simulação computacional via LTSpice \cite{ltspice}, e as medições experimentais em bancada utilizando osciloscópio para caracterização de magnitude e fase.
+A fundamentação da prática baseia-se na linearização do dispositivo em torno de um ponto de operação, tratando a sua não-linearidade original em duas frentes analíticas pelo princípio da superposição: a análise de grandes sinais (DC), responsável por garantir o isolamento DC provido pelos capacitores de acoplamento e definir o ponto quiescente na região ativa; e a análise de pequenos sinais (AC), onde o transistor assume seu modelo $\pi$-híbrido. Destaca-se também a função do capacitor de emissor que, atuando como um curto-circuito em AC, incrementa o ganho de tensão sem comprometer a estabilidade de polarização \cite{nilsson}.
 
-\section{Objetivos}
-
+Nesse contexto, os objetivos centrais deste experimento dividem-se nas seguintes etapas:
 \begin{itemize}
-	\item Exercitar o cálculo analítico da função de transferência $H(s)$ para circuitos lineares.
-	\item Aplicar a função de transferência para determinar a resposta em regime permanente senoidal (RPS).
-	\item Praticar o uso de softwares de álgebra simbólica para a resolução de equações de circuitos \cite{maxima}.
-	\item Desenvolver competências práticas no uso do osciloscópio para medição de amplitudes e defasagem.
+	\item \textbf{Modelagem Teórica:} Determinar analiticamente as tensões e correntes do ponto de polarização do TBJ e derivar as expressões teóricas dos parâmetros de quadripolo ($g_{11}$, $g_{12}$, $g_{21}$ e $g_{22}$).
+	\item \textbf{Análise Paramétrica Dinâmica:} Avaliar teoricamente com simulações no software LTSpice \cite{ltspice} e calculos com os recursos do WxMáxima  \cite{maxima} para ver o comportamento da resistência de entrada ($R_{in}$) e do ganho de tensão ($A_v$) do circuito em função da variação da resistência de carga ($R_L$).
+	\item \textbf{Levantamento Experimental:} Efetuar a montagem do circuito em bancada e, com auxílio de um gerador de sinais e de um osciloscópio, medir as tensões nas portas sob diferentes condições de carga estipuladas por um potenciômetro.
+	\item \textbf{Estimação Numérica:} Empregar o Método dos Mínimos Erros Quadráticos (MMEQ) sobre o sistema linear de dados experimentais coletados para estimar empiricamente os parâmetros práticos do amplificador, estabelecendo um comparativo rigoroso com as predições matemáticas.
 \end{itemize}
+
