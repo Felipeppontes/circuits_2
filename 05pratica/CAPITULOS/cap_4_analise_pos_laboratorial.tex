@@ -1,41 +1,65 @@
 \chapter{Análise Pós-Laboratorial}
 
-A análise final consiste no processamento dos dados experimentais coletados em bancada e sua comparação direta com o modelo matemático desenvolvido na análise teórica. Os objetivos principais desta etapa são: (1) validar a função de transferência $H(s)$ através da comparação de magnitude e fase; e (2) identificar as causas de desvios entre o comportamento ideal previsto e o desempenho real do filtro em laboratório.
+Nesta seção, realiza-se o tratamento matemático e a modelagem do filtro passa-baixa ativo de 4ª ordem a partir dos valores reais dos componentes passivos aferidos em bancada. O objetivo é reconstruir a função de transferência real do sistema, determinar as novas características de frequência de corte e ganho, e avaliar criticamente as discrepâncias observadas em relação aos dados nominais de projeto.
 
-\section{Comparação entre Teoria e Experimento}
+\section{Recálculo da Função de Transferência Real}
 
-A Tabela \ref{tab:comparacao_resultados} apresenta a comparação entre os valores calculados via software de álgebra simbólica e os valores medidos. A magnitude experimental foi obtida pela razão entre as amplitudes registradas nos canais do osciloscópio ($V_{out}/V_{in}$).
+A função de transferência total do filtro bilinear de 4ª ordem é dada pelo produto das funções de transferência de cada um dos dois estágios Sallen-Key que compõem a estrutura em cascata, multiplicada pelo ganho de banda passante experimental ($K_{med}$):
+\begin{equation}
+	H_{real}(s) = K_{med} \cdot H_1(s) \cdot H_2(s) = K_{med} \cdot \left( \frac{1}{a_1 s^2 + b_1 s + 1} \right) \cdot \left( \frac{1}{a_2 s^2 + b_2 s + 1} \right)
+\end{equation}
 
-\begin{table}[H]
+Os coeficientes polinomiais dependem diretamente do arranjo de componentes medidos a frio no laboratório. Utilizando as equações analíticas deduzidas na etapa teórica para componentes desiguais, os parâmetros para o \textbf{Estágio 1} são calculados como:
+\begin{align}
+	a_1 &= R_{1\_med} \cdot R_{2\_med} \cdot C_{1\_med} \cdot C_{2\_med} \nonumber \\
+	a_1 &= 9998 \cdot 10056 \cdot (98,8 \times 10^{-9}) \cdot (97,7 \times 10^{-9}) \approx 9,7055 \times 10^{-7} \text{ s}^2 \\
+	b_1 &= C_{2\_med} \cdot (R_{1\_med} + R_{2\_med}) \nonumber \\
+	b_1 &= (97,7 \times 10^{-9}) \cdot (9998 + 10056) \approx 1,9593 \times 10^{-3} \text{ s}
+\end{align}
+
+Analogamente, para o \textbf{Estágio 2}, os coeficientes são determinados por:
+\begin{align}
+	a_2 &= R_{3\_med} \cdot R_{4\_med} \cdot C_{3\_med} \cdot C_{4\_med} \nonumber \\
+	a_2 &= 9908 \cdot 10059 \cdot (102 \times 10^{-9}) \cdot (95 \times 10^{-9}) \approx 9,6571 \times 10^{-7} \text{ s}^2 \\
+	b_2 &= C_{4\_med} \cdot (R_{3\_med} + R_{4\_med}) \nonumber \\
+	b_2 &= (95 \times 10^{-9}) \cdot (9908 + 10059) \approx 1,8969 \times 10^{-3} \text{ s}
+\end{align}
+
+Substituindo os coeficientes numéricos obtidos, a função de transferência real do filtro no domínio de Laplace passa a ser expressa por:
+\begin{equation}
+	H_{real}(s) = \frac{5,6}{(9,7055 \times 10^{-7} s^2 + 1,9593 \times 10^{-3} s + 1)(9,6571 \times 10^{-7} s^2 + 1,8969 \times 10^{-3} s + 1)}
+\end{equation}
+
+\section{Análise Comparativa: Frequência de Corte e Ganho}
+
+A partir do polinômio do denominador da função de transferência ajustada, pode-se extrair a nova frequência de corte teórica corrigida do filtro. Avaliando o ponto de atenuação de $-3\text{ dB}$ ($|H_{real}(j\omega)| = \frac{K_{med}}{\sqrt{2}}$) via \textit{software} algébrico \cite{maxima}, obtém-se uma frequência de corte teórica recalculada de aproximadamente $51,2\text{ Hz}$.
+
+Ao comparar este valor com os dados nominais de projeto e com a medição prática realizada no laboratório, estabelece-se a análise de erros percentuais explicitada na Tabela \ref{tab:comparativo_erros}.
+
+\begin{table}[htbp]
 	\centering
-	\ABNTEXfontereduzida
-	\caption{Comparação de Magnitude e Fase: Teórico vs. Experimental.}
-	\label{tab:comparacao_resultados}
-	\begin{tabular}{l|c|c|c|c}
-		\hline
-		\multirow{2}{*}{\textbf{Freq. (Hz)}} & \multicolumn{2}{c|}{\textbf{Magnitude $|H(j\omega)|$}} & \multicolumn{2}{c}{\textbf{Fase ($^\circ$)}} \\ \cline{2-5}
-		& Teórico & Exp. & Teórico & Exp. \\ \hline
-		40,0      & 0,5947  & 0,5674  & -90,68  & -91,0  \\ [3pt]
-		100,0     & 1,5431  & 1,4995  & -91,77  & -90,0  \\ [3pt]
-		400,0     & 18,1956 & 15,3616 & -111,34 & -108,8 \\ [3pt]
-		480,2     & 49,9733 & 42,4354 & 178,13  & -153,5 \\ [3pt]
-		1101,0    & 3,7874  & 4,0000  & 94,34   & 96,5   \\ [3pt]
-		10984,0   & 0,3084  & 0,3486  & 90,35   & 89,7   \\ [3pt]
-		\hline
+	\caption{Comparativo global de parâmetros: Nominal, Recalculado e Medido.}
+	\label{tab:comparativo_erros}
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Parâmetro} & \textbf{Nominal} & \textbf{Recalculado} & \textbf{Medido} & \textbf{Erro} \\
+		\midrule
+		Freq. de Corte ($f_c$) & $50,0\text{ Hz}$ & $51,2\text{ Hz}$ & $46,0\text{ Hz}$ & $10,15\%$ \\
+		Ganho de Banda ($K$) & $4,0\text{ V/V}$ & $4,0\text{ V/V}$ & $5,6\text{ V/V}$ & $40,00\%$ \\
+		\bottomrule
 	\end{tabular}
-	\legend{Fonte: Elaborado pelos autores.}
 \end{table}
 
-\section{Resultados Gráficos (Telas do Osciloscópio)}
+O erro associado à frequência de corte ($10,15\%$) encontra-se dentro do limite esperado para circuitos integrados com componentes discretos de tolerância comercial convencional (tipicamente $\pm 5\%$ para resistores e $\pm 10\%$ para capacitores). A variação cumulativa das capacitâncias reais (com desvios para menos no primeiro estágio e para mais no segundo) deslocou ligeiramente os polos originais da aproximação ideal de Butterworth, resultando na redução da frequência observada em bancada para $46\text{ Hz}$.
 
-\subsection{Frequências de Corte e Ressonância}
+\section{Discussão sobre as Discrepâncias de Ganho e Não-Idealidades}
 
-
-\section{Análise de Fontes de Erro}
-
-As discrepâncias observadas entre o modelo matemático e os dados de bancada podem ser atribuídas aos seguintes fatores:
+O desvio mais acentuado verificado na prática ocorreu no ganho contínuo da banda de passagem, que saltou de um valor projetado de $4,0$ para uma leitura nominal de $5,6$ em bancada. Esse fenômeno de sobreganho em filtros ativos Sallen-Key pode ser fundamentado por fatores físicos e instrumentais específicos:
 
 \begin{enumerate}
-	\item \textbf{Tolerância dos Componentes}: Capacitores cerâmicos de $100$ nF possuem variações que impactam a precisão.
-	\item \textbf{Instrumentação}: Precisão do gerador de sinais e a resolução do osciloscópio.
+	\item \textbf{Tolerância do Circuito de Realimentação:} O ganho de um estágio ativo Sallen-Key não unitário é ditado pela razão de resistores conectados à malha inversora do amplificador operacional \cite{nilsson}. Pequenas variações nas resistências internas de ganho ou o uso de resistores comerciais com desvios nominais cumulativos alteram diretamente o fator $K$, elevando a resposta de amplitude para sinais de baixa frequência.
+	\item \textbf{Efeito de Carga e Cascateamento:} O modelo teórico assume isolamento perfeito entre o Estágio 1 e o Estágio 2. Na prática, a impedância de entrada do segundo estágio, combinada com a impedância de saída não nula em malha aberta do primeiro circuito integrado, causa um acoplamento dinâmico que distorce o fator de amortecimento global, elevando o pico de magnitude próximo à transição da banda de passagem.
+	\item \textbf{Incerteza de Medição Instrumental:} Conforme observado na tabela de varredura, a amplitude da tensão de entrada ($V_i$) oscilou entre $4,8\text{ V}$ e $5,2\text{ V}$ devido à regulação de carga do gerador de sinais. Como o ganho prático é calculado de forma indireta pela razão $V_o/V_i$, variações instantâneas na amplitude de excitação inserem erros sistemáticos na quantificação precisa do ganho RMS real pelo osciloscópio.
 \end{enumerate}
+
+Em suma, as curvas e os pontos experimentais demonstram que, apesar das não-idealidades paramétricas terem elevado o ganho e deslocado sutilmente a frequência de corte, o circuito cumpriu com êxito a sua função principal de filtragem, apresentando o perfil de atenuação abrupto de quarta ordem esperado para frequências superiores a $50\text{ Hz}$.

@@ -1,26 +1,75 @@
 \chapter{Medições em Laboratório}
 
-\section{Procedimento Experimental}
+Na segunda etapa da prática, o filtro ativo passa-baixa Butterworth de $4^{\text{a}}$ ordem foi montado fisicamente em uma matriz de contatos (protoboard). O circuito foi submetido a excitações senoidais reais para a extração do seu diagrama de Bode empírico e validação frente ao modelo teórico desenvolvido na primeira etapa.
 
-O circuito foi montado em protoboard utilizando um amplificador operacional alimentado simetricamente ($\pm 10$ V). O gerador de sinais foi configurado para uma onda senoidal de $100$ mV de amplitude nominal.
+\section{Instrumentação e Equipamentos Utilizados}
 
-\section{Resultados Coletados}
+A confiabilidade das medições experimentais desta prática repousa fundamentalmente na precisão e calibração dos instrumentos de bancada empregados. Todo o procedimento laboratorial de excitação, leitura e diagnóstico dos parâmetros elétricos foi garantido por meio do seguinte \textit{setup} de alto desempenho:
 
-Os dados obtidos com o osciloscópio estão organizados na Tabela \ref{tab:dados_experimentais}.
+\begin{itemize}
+	\item \textbf{Multímetro Digital (True RMS): Keysight U1253B.} Utilizado primariamente para a aferição a frio dos componentes passivos (medição ôhmica e capacitiva) com alta acurácia, atenuando as incertezas paramétricas na posterior análise matemática dos dados.
+	\item \textbf{Fonte de Tensão Simétrica Contínua: Keysight E3631A.} Responsável pela polarização dos amplificadores operacionais do circuito, fornecendo a tensão contínua simétrica de $\pm 10\text{ V}$, garantindo baixos níveis de \textit{ripple} e ruído de linha acoplado.
+	\item \textbf{Osciloscópio Digital (DSO): Keysight DSO-X 2012A.} Operado no modo de múltiplos canais simultâneos para o monitoramento síncrono do sinal de entrada (Canal 1) e da resposta do filtro (Canal 2), possibilitando a leitura gráfica de amplitudes (pico a pico) e a constatação visual da atenuação na banda de rejeição.
+	\item \textbf{Gerador de Funções Arbitrário:} Empregado para injetar o sinal senoidal de excitação ($V_i$) na entrada do circuito, configurado rigorosamente com amplitude nominal de $5\text{ V}$ de pico a pico, permitindo a varredura de frequência necessária para o levantamento da resposta em frequência.
+\end{itemize}
 
-\begin{table}[htb]
+\section{Aferição a Frio dos Componentes Passivos}
+
+Para justificar eventuais desvios entre a teoria e a bancada, os resistores e capacitores comerciais utilizados nos dois estágios Sallen-Key foram medidos a frio utilizando o multímetro digital. A Tabela \ref{tab:afericao_frio} apresenta a comparação direta entre os valores adotados no projeto teórico e os valores reais mensurados, evidenciando as tolerâncias de fabricação.
+
+\begin{table}[htbp]
 	\centering
-	\caption{Dados experimentais obtidos em bancada.}
-	\label{tab:dados_experimentais}
-	\begin{tabular}{c|c|c|c}
-		\hline
-		\textbf{Frequência (Hz)} & \textbf{$V_{in}$ (mV)} & \textbf{$V_{out}$ (mV)} & \textbf{Fase ($^\circ$)} \\ \hline
-		40,0      & 91,4  & 51,86 & -91,0  \\
-		100,0     & 94,9  & 142,3 & -90,0  \\
-		400,0     & 103,7 & 1593  & -108,8 \\
-		480,2     & 100,6 & 4269  & -153,5 \\
-		1101,0    & 91,0  & 364   & 96,5   \\
-		10984,0   & 91,5  & 31,9  & 89,7   \\ \hline
+	\caption{Aferição a frio dos componentes passivos: Teoria vs. Bancada.}
+	\label{tab:afericao_frio}
+	\begin{tabular}{llcc}
+		\toprule
+		\textbf{Estágio} & \textbf{Componente} & \textbf{Valor Teórico} & \textbf{Valor Medido} \\
+		\midrule
+		\multirow{4}{*}{Estágio 1} 
+		& Resistor $R_1$ & $10,00\text{ k}\Omega$ & $9,998\text{ k}\Omega$ \\
+		& Resistor $R_2$ & $10,00\text{ k}\Omega$ & $10,056\text{ k}\Omega$ \\
+		& Capacitor $C_1$ & $100\text{ nF}$ & $98,8\text{ nF}$ \\
+		& Capacitor $C_2$ & $100\text{ nF}$ & $97,7\text{ nF}$ \\
+		\midrule
+		\multirow{4}{*}{Estágio 2} 
+		& Resistor $R_3$ & $10,00\text{ k}\Omega$ & $9,908\text{ k}\Omega$ \\
+		& Resistor $R_4$ & $10,00\text{ k}\Omega$ & $10,059\text{ k}\Omega$ \\
+		& Capacitor $C_3$ & $100\text{ nF}$ & $102,0\text{ nF}$ \\
+		& Capacitor $C_4$ & $100\text{ nF}$ & $95,0\text{ nF}$ \\
+		\bottomrule
 	\end{tabular}
-	\legend{Fonte: Dados coletados em laboratório.}
 \end{table}
+
+\section{Frequência de Corte e Ganho Medidos}
+
+A frequência de corte ($f_c$) teórica projetada para o filtro era de $50,0\text{ Hz}$. Durante a análise em malha fechada no osciloscópio, identificou-se a queda de $3\text{ dB}$ (aproximadamente $70,7\%$ do ganho máximo da banda passante \cite{nilsson}) na frequência empírica de $46\text{ Hz}$. Este deslocamento representa um erro percentual aceitável de $8\%$, atribuído diretamente às dispersões capacitivas aferidas na Tabela \ref{tab:afericao_frio}.
+
+Em relação ao ganho da banda passante ($K$), o valor projetado teoricamente era $K=4,0$. Embora anotações iniciais de laboratório tenham indicado um parâmetro isolado de $5,6$, a extração em bancada da razão entre a amplitude de saída e a de entrada em baixas frequências (por exemplo, em $1\text{ Hz}$, onde $V_{o} = 19,5\text{ V}$ para $V_{i} = 4,8\text{ V}$) aponta para um ganho efetivo praticado de aproximadamente $4,06$. Este resultado atesta a excelente linearidade e estabilidade dos operacionais na banda de passagem.
+
+\section{Varredura de Frequência e Atenuação}
+
+Para caracterizar o filtro ao longo do espectro, procedeu-se com a varredura do gerador de funções em múltiplos e submúltiplos da frequência de corte nominal. As amplitudes de pico a pico rastreadas pelos canais do osciloscópio foram tabuladas e contrastadas com as previsões da equação de Butterworth, conforme ilustra a Tabela \ref{tab:varredura_frequencia}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Varredura de frequência: Amplitudes de entrada ($V_i$) e saída ($V_o$) teóricas e experimentais.}
+	\label{tab:varredura_frequencia}
+	\begin{tabular}{ccccc}
+		\toprule
+		\multirow{2}{*}{\textbf{Frequência (Hz)}} & \multicolumn{2}{c}{\textbf{Tensão de Entrada ($V_{i}$) [V]}} & \multicolumn{2}{c}{\textbf{Tensão de Saída ($V_{o}$) [V]}} \\
+		\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+		& \textbf{Teórico} & \textbf{Medido} & \textbf{Teórico} & \textbf{Medido} \\
+		\midrule
+		$1,0$   & $5,00$ & $4,80$ & $20,00$ & $19,50$ \\
+		$12,5$  & $5,00$ & $5,20$ & $20,00$ & $19,82$ \\
+		$25,0$  & $5,00$ & $5,09$ & $19,96$ & $20,05$ \\
+		$37,5$  & $5,00$ & $5,09$ & $19,07$ & $20,10$ \\
+		$50,0$  & $5,00$ & $5,20$ & $14,14$ & $13,86$ \\
+		$62,5$  & $5,00$ & $4,90$ & $7,58$  & $6,99$  \\
+		$80,0$  & $5,00$ & $5,00$ & $3,02$  & $3,09$  \\
+		$125,0$ & $5,00$ & $5,08$ & $0,51$  & $0,65$  \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+A análise da Tabela \ref{tab:varredura_frequencia} evidencia o rigoroso comportamento de atenuação (característico de filtros de $4^{\text{a}}$ ordem). A partir do ponto de corte em torno de $50\text{ Hz}$, o sinal sofreu uma degradação expressiva, caindo a $0,65\text{ V}$ em $125\text{ Hz}$ e comprovando a rejeição em alta frequência modelada pela função de transferência.

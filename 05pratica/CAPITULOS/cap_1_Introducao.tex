@@ -1,14 +1,19 @@
 \chapter{Introdução}
 
-O estudo da resposta de circuitos lineares em regime permanente senoidal é fundamental para a compreensão do comportamento de sistemas no domínio da frequência \cite{nilsson}. 
+O estudo da resposta de circuitos lineares no domínio da frequência é um pilar fundamental para a compreensão e o projeto de sistemas de processamento de sinais, permitindo a seleção de faixas de operação específicas e a atenuação de componentes indesejadas \cite{nilsson}. Dentre as diversas topologias de filtragem, os filtros ativos destacam-se por utilizarem amplificadores operacionais em conjunto com redes de resistores e capacitores. Essa configuração possibilita a síntese de polos complexos conjugados sem a necessidade de indutores (que costumam ser volumosos e não ideais em baixas frequências), além de fornecer isolamento entre estágios e ganho de tensão ao sinal.
 
-Nesta prática de laboratório, realizou-se a análise teórica e experimental da influência da função de transferência na resposta de um filtro ativo de realimentação múltipla (MFB) implementado com amplificador operacional. O trabalho foi estruturado em etapas complementares: a análise analítica utilizando o software Maxima \cite{maxima}, a simulação computacional via LTSpice \cite{ltspice}, e as medições experimentais em bancada utilizando osciloscópio para caracterização de magnitude e fase.
+Nesta quinta prática de laboratório, realiza-se o projeto integral, a análise teórica e a validação experimental de um filtro ativo passa-baixa utilizando a aproximação de Butterworth de 4ª ordem. A escolha da resposta de Butterworth justifica-se pela sua característica de banda passante maximamente plana, que garante uma distorção mínima de amplitude na região de interesse \cite{nilsson}. O projeto estabelecido possui requisitos estritos de projeto: uma frequência de corte ($f_c$) de $50\text{ Hz}$ e um ganho em banda passante ($K$) igual a 4.
+
+O trabalho foi estruturado em etapas metódicas e complementares. Inicialmente, o projeto parte da determinação do filtro-protótipo normalizado. Em seguida, aplicam-se as técnicas de escalonamento de frequência e de magnitude para a obtenção dos valores analíticos dos componentes passivos, os quais são posteriormente ajustados para os valores comerciais mais próximos disponíveis em bancada. Toda a análise nodal do circuito no domínio de Laplace e a obtenção das expressões para os diagramas de Bode foram processadas com o auxílio computacional do software de álgebra simbólica Maxima \cite{maxima}.
+
+A validação teórica pré-bancada pôde ainda ser suportada pela simulação do esquemático elétrico no ambiente SPICE \cite{ltspice}. Por fim, a montagem física na matriz de contatos permitiu a excitação do sistema com um gerador de sinais e a medição experimental da magnitude da função de transferência utilizando o osciloscópio, estabelecendo o comparativo rigoroso entre o modelo matemático e a resposta real do filtro projetado.
 
 \section{Objetivos}
 
 \begin{itemize}
-	\item Exercitar o cálculo analítico da função de transferência $H(s)$ para circuitos lineares.
-	\item Aplicar a função de transferência para determinar a resposta em regime permanente senoidal (RPS).
-	\item Praticar o uso de softwares de álgebra simbólica para a resolução de equações de circuitos \cite{maxima}.
-	\item Desenvolver competências práticas no uso do osciloscópio para medição de amplitudes e defasagem.
+	\item Projetar um filtro-protótipo ativo passa-baixa Butterworth de 4ª ordem e aplicar os devidos procedimentos de escalonamento de frequência e de magnitude para atingir $f_c = 50\text{ Hz}$.
+	\item Ajustar os componentes analíticos para valores comerciais, recalculando teoricamente a função de transferência, a nova frequência de corte e o ganho real do filtro.
+	\item Aplicar a transformada de Laplace na análise nodal de circuitos lineares com amplificadores operacionais \cite{nilsson}.
+	\item Praticar o uso de softwares de computação algébrica e de simulação em circuitos eletrônicos para a resolução de sistemas de equações algébricas e levantamento do gráfico de Bode \cite{maxima}.
+	\item Desenvolver competências práticas de instrumentação em laboratório, utilizando o gerador de funções e o osciloscópio para o rastreamento em frequência do circuito físico, validando as características de atenuação e ganho previstas pelo projeto.
 \end{itemize}

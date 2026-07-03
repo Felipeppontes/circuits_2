@@ -3,24 +3,27 @@
 \babel@toc {brazil}{}\relax 
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{3}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Objetivos}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Análise Teórica e Projeto do Filtro}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Topologia do Circuito e Modelo do Amplificador Operacional}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Dedução da Função de Transferência do Protótipo}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Aproximação de Butterworth e Síntese de 4ª Ordem}{6}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Escalonamento de Frequência e Magnitude}{7}{subsection.1.2.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Análise Teórica}}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Função de Transferência}{4}{section.2.1}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Medições em Laboratório}}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Instrumentação e Equipamentos Utilizados}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Aferição a Frio dos Componentes Passivos}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Frequência de Corte e Ganho Medidos}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Varredura de Frequência e Atenuação}{9}{section.2.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Medições em Laboratório}}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Procedimento Experimental}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Resultados Coletados}{5}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Análise Pós-Laboratorial}}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Recálculo da Função de Transferência Real}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Análise Comparativa: Frequência de Corte e Ganho}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Discussão sobre as Discrepâncias de Ganho e Não-Idealidades}{12}{section.3.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Análise Pós-Laboratorial}}{6}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Comparação entre Teoria e Experimento}{6}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Resultados Gráficos (Telas do Osciloscópio)}{6}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Frequências de Corte e Ressonância}{6}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Análise de Fontes de Erro}{6}{section.4.3}%
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{7}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Conclusão}}{14}{chapter.4}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{REFER\^ENCIAS}}{8}{section*.8}%
+\contentsline {chapter}{\MakeTextUppercase {REFER\^ENCIAS}}{15}{section*.11}%
 \vspace {\cftbeforechapterskip }

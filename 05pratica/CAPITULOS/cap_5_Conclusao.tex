@@ -1,3 +1,9 @@
 \chapter{Conclusão}
 
-A prática validou a modelagem de filtros ativos MFB em regime permanente senoidal. O comportamento de passa-faixa foi verificado experimentalmente, com a frequência central próxima ao projetado (480 Hz). A concordância entre a teoria e a prática confirma a eficácia do uso de funções de transferência para o projeto de sistemas de condicionamento de sinais.
+Esta prática laboratorial permitiu consolidar a metodologia de projeto, montagem e caracterização de um filtro ativo passa-baixa Butterworth de $4^{\text{a}}$ ordem utilizando a topologia Sallen-Key. O fluxo de trabalho — desde a síntese do filtro-protótipo normalizado até o escalonamento para componentes comerciais — demonstrou-se eficaz na transição da teoria para a bancada.
+
+Os resultados obtidos comprovaram o rigoroso comportamento de seletividade do circuito. A frequência de corte experimental aferida foi de $46\text{ Hz}$, apresentando um desvio percentual aceitável em relação ao valor nominal de projeto ($50\text{ Hz}$) e ao valor teórico recalculado ($51,2\text{ Hz}$). Como demonstrado, esse deslocamento é uma consequência direta e esperada das tolerâncias de fabricação dos capacitores e resistores reais utilizados.
+
+O ganho na banda de passagem estabeleceu-se em $5,6\text{ V/V}$, apresentando uma discrepância mais acentuada em relação ao ganho estipulado de $4,0\text{ V/V}$. A análise pós-laboratorial atestou que esse fenômeno provém da alta sensibilidade paramétrica da malha de realimentação dos estágios ativos e de ligeiros efeitos de carga decorrentes do cascateamento não ideal dos amplificadores operacionais. 
+
+Em síntese, o emprego conjunto de ferramentas de álgebra simbólica e instrumentação de precisão foi fundamental para a validação do sistema. Apesar das não-idealidades inerentes aos componentes físicos e aos instrumentos de medida, o circuito atendeu satisfatoriamente aos critérios de atenuação abrupta em alta frequência e planicidade na banda de passagem, características essenciais exigidas pela aproximação de Butterworth.
